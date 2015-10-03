@@ -6,7 +6,7 @@ int main() {
 
 	scanf("%d", &den);
 
-	switch (den %7) {
+	switch ((den-1) %7) {
 
 	case 0:
 		printf( "Sereda");
