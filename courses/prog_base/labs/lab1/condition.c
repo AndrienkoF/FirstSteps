@@ -14,12 +14,12 @@ if (a<0 && b<0 && c<0)
            modmin=abs(a);
            sum2=b+c;
        }
-       if (b<a && b<c)
+       else if (b<a && b<c)
        {
          modmin=abs(b);
            sum2=a+c;
        }
-        if (c<a && c<b)
+       else if (c<a && c<b)
        {
          modmin=abs(c);
            sum2=a+b;
@@ -30,7 +30,7 @@ if (a<0 && b<0 && c<0)
        }
 
 
-   if (sum2<-256 &&
+if (sum2<-256 &&
        modmin==1,2,4,8,16,32,64,128,256 &&
        modmin<256)
        {
@@ -38,7 +38,7 @@ if (a<0 && b<0 && c<0)
        }
 
 
-    else if (abs(sum2)>16 || modmin>8)
+    else if (fabs(sum2)>16 || modmin>8)
         {
             result=1;
         }
@@ -50,9 +50,9 @@ if (a<0 && b<0 && c<0)
    }
 
 
-if (a<0 || b<0 || c<0)
+else if (a<0 || b<0 || c<0)
 {
-    if (a<0 && b>0 && c>0) {
+    if (a<0 && b>=0 && c>=0) {
     if (a>-256)
        {
            result=1;
@@ -62,8 +62,9 @@ if (a<0 || b<0 || c<0)
         result=0;
     }
 }
-    if (a>0 && b<0 && c>0) {
-    if (b>-256)
+}
+else if (a>=0 && b<0 && c>=0) {
+     if (b>-256)
        {
            result=1;
        }
@@ -72,8 +73,8 @@ if (a<0 || b<0 || c<0)
         result=0;
     }
 }
-    if (a>0 && b>0 && c<0) {
-    if (c>-256)
+else if (a>=0 && b>=0 && c<0) {
+     if (c>-256)
        {
            result=1;
        }
@@ -81,46 +82,55 @@ if (a<0 || b<0 || c<0)
     {
         result=0;
     }
-}
 }
 
-if (a<0 && b<0 && c>0)
+
+else if (a<0 && b<0 && c>=0)
     {
         if (((a+b)*(1+2))>-256)
         {
             result=1;
         }
+        else
+        {
+            result=0;
+        }
     }
-if (a<0 && b>0 && c<0 )
+else if (a<0 && b>=0 && c<0 )
     {
         if (((a+c)*(1+2))>-256)
         {
             result=1;
         }
+        else
+        {
+            result=0;
+        }
     }
-if (c<0 && b<0 && a>0)
+else if (c<0 && b<0 && a>=0)
     {
          if (((c+b)*3)>-256)
             {
                 result=1;
             }
-    }
-else
-    {
-        result=0;
+          else
+        {
+            result=0;
+        }
     }
 
-if (a>=0, b>=0, c>=0)
+
+else if (a>=0, b>=0, c>=0)
     {
        if (a>c && a>b)
        {
            max=a;
        }
-       if (b>c && b>a)
+       else if (b>c && b>a)
        {
            max=b;
        }
-       if (c>a && c>b)
+       else if (c>a && c>b)
        {
            max=c;
        }
@@ -140,5 +150,5 @@ else
 }
 
    return result;
-
 }
+
