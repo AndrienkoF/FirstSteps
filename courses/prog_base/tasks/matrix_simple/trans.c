@@ -8,7 +8,7 @@ void fillRand(int mat[4][4])
     for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
     {
-       mat[i][j] = rand()% 1999 - 999;
+       mat[i][j] = - 999 + rand()% 1999 ;
     }
 }
 
