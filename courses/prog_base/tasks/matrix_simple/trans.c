@@ -4,11 +4,10 @@
 void fillRand(int mat[4][4])
 {
     int i, j, n = 4;
-    srand(time(NULL));
     for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
     {
-       mat[i][j] = - 1000 + rand()% 2000 ;
+       mat[i][j] = rand()% 1999 - 999 ;
     }
 }
 

@@ -6,10 +6,10 @@ int exec(int op, int a, int b) {
 
    if (op < 0)
    {
-       int temp; //Переменная для обмена значений двух величин
-       temp = a;
+       int res;
+       res = a;
        a = b;
-       b = temp;
+       b = res;
    }
 switch (op)
 {
@@ -35,11 +35,7 @@ case 6:
     result = pow(a,b);
     break;
 case 7:
-    result = a%b;
-    break;
 case 13:
-    result = a%b;
-    break;
 case 77:
     result = a%b;
     break;
@@ -114,6 +110,7 @@ default:
     }
 
 }
+
 
    return result;
 }
