@@ -17,17 +17,13 @@ void rotateCW180(int mat[4][4])
     int i, j, n = 4;
 	int result [4][4] ;
 
-        for (i = 0; i < n; i++)
+        for (i = 0; i < n; i++){
 	    for (j = 0; j < n; j++)
 		{
            result [i][j] = mat[3 - i][3 - j] ;
 		}
-
-		for (i = 0; i < n; i++)
-		for (j = 0; j < n; j++)
-		{
-          result [i][j] =  mat[i][j];
-		}
+        }
+        myMat(result,mat);
 }
 
 void flipH(int mat[4][4])
@@ -35,18 +31,13 @@ void flipH(int mat[4][4])
     int i, j, n = 4;
 	int result[4][4] ;
 
-		for (i = 0; i < n; i++)
+		for (i = 0; i < n; i++){
 		for (j = 0; j < n; j++)
 		{
           result [i][j] =  mat[i][3 - j];
 		}
-
-		for (i = 0; i < n; i++)
-		for (j = 0; j < n; j++)
-		{
-          result [i][j] =  mat[i][j];
 		}
-
+        myMat(result,mat);
 }
 
 void transposSide(int mat[4][4])
@@ -54,15 +45,23 @@ void transposSide(int mat[4][4])
     int i, j, n = 4;
 	int result[4][4] ;
 
-		for (i = 0; i < n; i++)
+		for (i = 0; i < n; i++){
 		for (j = 0; j < n; j++)
 		{
           result [i][j] = mat[3 - j][3 - i];
 		}
+		}
+		myMat(result,mat);
+}
 
-		for (i = 0; i < n; i++)
+void myMat (int Mat1[4][4], int Mat2[4][4] )
+{
+    int i, j, n = 4;
+	for (i = 0; i < n; i++)
+    {
 		for (j = 0; j < n; j++)
 		{
-          result [i][j] =  mat[i][j];
+			Mat1[i][j] = Mat2[i][j];
 		}
+	}
 }
