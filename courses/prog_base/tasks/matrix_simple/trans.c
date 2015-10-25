@@ -61,7 +61,7 @@ void myMat (int Mat1[4][4], int Mat2[4][4] )
     {
 		for (j = 0; j < n; j++)
 		{
-			Mat1[i][j] = Mat2[i][j];
+			Mat2[i][j] = Mat1[i][j];
 		}
 	}
 }
