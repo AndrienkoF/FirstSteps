@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <Windows.h>
+#define RED      BACKGROUND_RED                   | BACKGROUND_INTENSITY
+#define PURPLE   BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY
+#define YELLOW   BACKGROUND_RED | BACKGROUND_GREEN| BACKGROUND_INTENSITY
+
+COORD pos;
+HANDLE hConsole;
+short* xPoint;
+short* yPoint;
+
+void position(int coordX, int coordY)
+{
+	pos.X = coordX;
+	pos.Y = coordY;
+	SetConsoleCursorPosition(hConsole, pos);
+	Sleep(3);
+	printf("*");
+}
+
+void consoleMoveXR(int cordX, int cordY, int endX)      /* ---->>> */
+{
+	while (cordX < endX - 1)
+    {
+        color ( cordY );
+		position(cordX, cordY);
+		cordX++;
+		(*xPoint)++;
+		(*yPoint) = cordY;
+
+	}
+
+}
+void consoleMoveXL(int cordX, int cordY, int endX)    /*  <<<----   */
+{
+	while (cordX > endX)
+    {
+        color ( cordY );
+		position(cordX, cordY);
+		cordX--;
+		(*xPoint)--;
+		(*yPoint) = cordY;
+
+	}
+
+}
+void consoleMoveYUp(int cordX, int cordY, int endY)
+{
+	while (cordY > endY)
+    {
+        color ( cordY );
+		position(cordX, cordY);
+		cordY--;
+		(*xPoint) = cordX;
+		(*yPoint)--;
+
+	}
+}
+void consoleMoveYDown(int cordX, int cordY, int endY)
+{
+	while (cordY < endY - 1)
+    {
+        color ( cordY );
+		position(cordX, cordY);
+		cordY++;
+		(*xPoint) = cordX;
+		(*yPoint)++;
+
+	}
+}
+
+void color (int cordY )
+{
+    int color;
+    if (cordY%3 == 0)
+    {
+        color = RED;
+    }
+    if (cordY%3  == 1)
+    {
+        color = YELLOW;
+    }
+    if (cordY%3 == 2)
+    {
+        color = PURPLE ;
+    }
+    SetConsoleTextAttribute(hConsole, color);
+}
+
+
+int main(void)
+{
+	int cordX = 80;
+	int cordY = 0;
+	int xLUp = 0;
+	int xRDn = 80;
+	int yRUp = 0;
+	int yLDn = 25;
+
+	xPoint = &cordX;
+	yPoint = &cordY;
+
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	while (cordY != 12)
+    {
+		consoleMoveXL(cordX, cordY, xLUp);
+		consoleMoveYDown(cordX, cordY, yLDn);
+		consoleMoveXR(cordX, cordY, xRDn);
+		consoleMoveYUp(cordX, cordY, yRUp);
+		cordX--;
+		cordY++;
+		xLUp++;
+		yLDn--;
+		xRDn--;
+		yRUp++;
+
+	}
+	consoleMoveXL(cordX, cordY, xLUp);
+	position(cordX, cordY);
+
+	getchar();
+	return 0;
+}
