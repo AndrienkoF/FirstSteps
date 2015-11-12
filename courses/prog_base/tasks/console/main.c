@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <Windows.h>
-#define RED      BACKGROUND_RED                   | BACKGROUND_INTENSITY
-#define PURPLE   BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY
-#define YELLOW   BACKGROUND_RED | BACKGROUND_GREEN| BACKGROUND_INTENSITY
 
 COORD pos;
 HANDLE hConsole;
@@ -22,7 +19,7 @@ void consoleMoveXR(int cordX, int cordY, int endX)      /* ---->>> */
 {
 	while (cordX < endX - 1)
     {
-        color ( cordY );
+        colorCons ( cordY );
 		position(cordX, cordY);
 		cordX++;
 		(*xPoint)++;
@@ -35,7 +32,7 @@ void consoleMoveXL(int cordX, int cordY, int endX)    /*  <<<----   */
 {
 	while (cordX > endX)
     {
-        color ( cordY );
+        colorCons ( cordY );
 		position(cordX, cordY);
 		cordX--;
 		(*xPoint)--;
@@ -48,7 +45,7 @@ void consoleMoveYUp(int cordX, int cordY, int endY)
 {
 	while (cordY > endY)
     {
-        color ( cordY );
+        colorCons ( cordY );
 		position(cordX, cordY);
 		cordY--;
 		(*xPoint) = cordX;
@@ -60,7 +57,7 @@ void consoleMoveYDown(int cordX, int cordY, int endY)
 {
 	while (cordY < endY - 1)
     {
-        color ( cordY );
+        colorCons( cordY );
 		position(cordX, cordY);
 		cordY++;
 		(*xPoint) = cordX;
@@ -69,20 +66,20 @@ void consoleMoveYDown(int cordX, int cordY, int endY)
 	}
 }
 
-void color (int cordY )
+void colorCons(int cordY )
 {
     int color;
     if (cordY%3 == 0)
     {
-        color = RED;
+        color = BACKGROUND_RED | BACKGROUND_INTENSITY;
     }
     if (cordY%3  == 1)
     {
-        color = YELLOW;
+        color = BACKGROUND_RED | BACKGROUND_GREEN| BACKGROUND_INTENSITY;
     }
     if (cordY%3 == 2)
     {
-        color = PURPLE ;
+        color = BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY ;
     }
     SetConsoleTextAttribute(hConsole, color);
 }
