@@ -15,6 +15,25 @@ void position(int coordX, int coordY)
 	printf("*");
 }
 
+void colorCons(int cordY )
+{
+    int color;
+    if (cordY%3 == 0)
+    {
+        color = BACKGROUND_RED | BACKGROUND_INTENSITY;
+    }
+    if (cordY%3  == 1)
+    {
+        color = BACKGROUND_RED | BACKGROUND_GREEN| BACKGROUND_INTENSITY;
+    }
+    if (cordY%3 == 2)
+    {
+        color = BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY ;
+    }
+    SetConsoleTextAttribute(hConsole, color);
+}
+
+
 void consoleMoveXR(int cordX, int cordY, int endX)      /* ---->>> */
 {
 	while (cordX < endX - 1)
@@ -65,25 +84,6 @@ void consoleMoveYDown(int cordX, int cordY, int endY)
 
 	}
 }
-
-void colorCons(int cordY )
-{
-    int color;
-    if (cordY%3 == 0)
-    {
-        color = BACKGROUND_RED | BACKGROUND_INTENSITY;
-    }
-    if (cordY%3  == 1)
-    {
-        color = BACKGROUND_RED | BACKGROUND_GREEN| BACKGROUND_INTENSITY;
-    }
-    if (cordY%3 == 2)
-    {
-        color = BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY ;
-    }
-    SetConsoleTextAttribute(hConsole, color);
-}
-
 
 int main(void)
 {
