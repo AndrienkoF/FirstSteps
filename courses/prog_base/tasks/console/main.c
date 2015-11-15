@@ -3,8 +3,8 @@
 
 COORD pos;
 HANDLE hConsole;
-short* xPoint;
-short* yPoint;
+int * xPoint;
+int * yPoint;
 
 void position(int coordX, int coordY)
 {

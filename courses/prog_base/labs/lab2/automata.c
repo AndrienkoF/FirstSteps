@@ -125,7 +125,7 @@ void printArray(int arr[], int size) {
 
 int main()
 {
-	int moves[10] = { 4,16,31,301, 31, 4 };
+	int moves[10] = { 4,16,31,301,4,16,31,301,301};
 	int result;
 	int movesLength = 10;
 	int res[20] = { 0 };
@@ -135,7 +135,7 @@ int main()
 	printf("Vhidna : ");
 	printArray(moves, movesLength);
 	puts("");
-	printf("Vihadna : ");
+	printf("Vihidna : ");
     printArray(res, resLength);
 	puts("");
     printf("Result: %i\n", result);
