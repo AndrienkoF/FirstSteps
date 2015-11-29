@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void fprocess(const char * pread, const char * pwrite){
-    int i;
+    int i = 1;
     int firsScore;
     int secondScore;
     char myStr[100];
