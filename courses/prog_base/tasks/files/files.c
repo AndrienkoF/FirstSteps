@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 void fprocess(const char * pread, const char * pwrite){
+    int i;
     int firsScore;
     int secondScore;
     char myStr[100];
@@ -19,8 +20,12 @@ void fprocess(const char * pread, const char * pwrite){
 
     puts("i read this!");
 
+    while(i < 21)
+    {
+        fgets(myStr, 100, fp);
+        i++;
+    }
     fscanf(fp, "%s %i %s %i", &firsTeam, &firsScore, &secondTeam, &secondScore);
-    fgets(myStr, 100, fp);
 
     fn = fopen(pwrite, "w");
     if (fn == NULL) {
