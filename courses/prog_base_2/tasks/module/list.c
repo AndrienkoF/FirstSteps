@@ -19,7 +19,7 @@ post_t * new_post(int length){
     return newPost;
 }
 
-void memory_delete(post_t * list){
+void post_delete(post_t * list){
     free(list->userName);
     free(list->array);
     free(list->repost);
@@ -77,7 +77,7 @@ void post_print(post_t * list) {
     }
 }
 
-void largestNumRepost(post_t * list){
+void post_largestNumRepost(post_t * list){
     int i;
     int    maxR = list->repost[0];
     char * maxU = list->userName[0];
@@ -93,7 +93,7 @@ void largestNumRepost(post_t * list){
     printf("%s\n%s\nrepost >> %i\n\n ", maxU,maxA,maxR);
 }
 
-void reposMoreThanGivenNum(post_t * list, int giveNum){
+void post_reposMoreThanGivenNum(post_t * list, int giveNum){
     int i;
     int temp = 0;
     printf("Repost more than a given number: %i\n", giveNum);

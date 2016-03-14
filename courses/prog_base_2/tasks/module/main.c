@@ -21,14 +21,14 @@ int main(){
     printf("Size list: %i\n",  post_getLength(newPost));
 
     printf("-------------------------------------------------\n");
-    largestNumRepost(newPost);
+    post_largestNumRepost(newPost);
 
     printf("-------------------------------------------------\n");
-    reposMoreThanGivenNum(newPost, 100);
+    post_reposMoreThanGivenNum(newPost, 100);
 
     printf("-------------------------------------------------\n");
-    reposMoreThanGivenNum(newPost, 1000);
-    memory_delete(newPost);
+    post_reposMoreThanGivenNum(newPost, 1000);
+    post_delete(newPost);
 
     return 0;
 }
