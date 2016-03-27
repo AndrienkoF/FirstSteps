@@ -25,8 +25,11 @@ void * writer(void * args){
 		array->string = array->mas[array->ptrToMas];
 		if ((array->ptrToMas) == MAX){
 			(array->ptrToMas) = (array->ptrToMas) % MAX;
-			puts("\nPanels term expired. Getting tested again after 2 sec...");
+			puts("\nPanels term expired. Getting tested again after 2 sec...\n");
 			Sleep(2000);
+		}
+		if (kbhit()) {
+			break;
 		}
 
 		mutex_unlock(array->mutex);
@@ -48,6 +51,9 @@ void * reader(void * args){
 		if (length <= 5){
             printf("%s\n", array->mas[array->ptrToMas]);
 		}
+		if (kbhit()) {
+			break;
+		}
 
 		mutex_unlock(array->mutex);
         Sleep(100);
@@ -59,8 +65,8 @@ int main (void){
     array_t array;
     array.ptrToMas = -1;
 
-    array.mas[0] = "Hello";
-	array.mas[1] = "Hello string";
+    array.mas[0] = "Hello string";
+	array.mas[1] = "Hello";
 	array.mas[2] = "Test string 1";
 	array.mas[3] = "Good";
 	array.mas[4] = "Test string 2";
@@ -68,7 +74,7 @@ int main (void){
 	array.mas[6] = "Test string 6";
 	array.mas[7] = "Test string 7";
 	array.mas[8] = "String";
-	array.mas[9] = "Test3";
+	array.mas[9] = "Red";
 	array.mas[10]= "Test string 4";
 	array.mutex = mutex_new();
 
