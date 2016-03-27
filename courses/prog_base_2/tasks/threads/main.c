@@ -6,95 +6,33 @@
 
 #include "thread.h"
 #include "mutex.h"
+#include "func.h"
 
-#define MAX 10
+#define MAX 5
 
-typedef struct array_s {
+int main(){
+
     char * mas[MAX];
-    char * string;
-    int ptrToMas;
-	mutex_t * mutex;
-}array_t;
+    mas[0] = "Pink";
+	mas[1] = "Fill";
+	mas[2] = "Good";
+	mas[3] = "Test string 2";
+	mas[4] = "Test";
+/*
+    mas[0] = "Test string 6";
+	mas[1] = "Test string 7";
+	mas[2] = "String";
+	mas[3] = "Red";
+	mas[4] = "Test string 4";
+*/
+    array_t * array = array_new(mas);
+    array_print(mas);
+    writer_t * writerOne = writer_new(array);
+	reader_t * readerOne = reader_new(array);
 
-void * writer(void * args){
-    array_t * array = (array_t *)args;
-    while(1){
-        mutex_lock(array->mutex);
-        Sleep(100);
-		(array->ptrToMas)++;
-		array->string = array->mas[array->ptrToMas];
-		if ((array->ptrToMas) == MAX){
-			(array->ptrToMas) = (array->ptrToMas) % MAX;
-			puts("\nPanels term expired. Getting tested again after 2 sec...\n");
-			Sleep(2000);
-		}
-		if (kbhit()) {
-			break;
-		}
+    writer_free(writerOne);
+	reader_free(readerOne);
+    array_free(array);
 
-		mutex_unlock(array->mutex);
-        Sleep(100);
-    }
-    return NULL;
-}
-
-void * reader(void * args){
-    array_t * array = (array_t *)args;
-	int length;
-	while (1) {
-		mutex_lock(array->mutex);
-		Sleep(100);
-
-        (array->ptrToMas)++;
-        length = strlen(array->mas[array->ptrToMas]);
-
-		if (length <= 5){
-            printf("%s\n", array->mas[array->ptrToMas]);
-		}
-		if (kbhit()) {
-			break;
-		}
-
-		mutex_unlock(array->mutex);
-        Sleep(100);
-	}
-    return NULL;
-}
-
-int main (void){
-    array_t array;
-    array.ptrToMas = -1;
-
-    array.mas[0] = "Hello string";
-	array.mas[1] = "Hello";
-	array.mas[2] = "Test string 1";
-	array.mas[3] = "Good";
-	array.mas[4] = "Test string 2";
-	array.mas[5] = "Test";
-	array.mas[6] = "Test string 6";
-	array.mas[7] = "Test string 7";
-	array.mas[8] = "String";
-	array.mas[9] = "Red";
-	array.mas[10]= "Test string 4";
-	array.mutex = mutex_new();
-
-    int i;
-    for(i = 0; i <= MAX; i++){
-        printf("%i) Input string: '%s'\n", i, array.mas[i]);
-    }
-
-	thread_t * writerOne = thread_create_args(writer, &array);
-    Sleep(15);
-	thread_t * readerOne = thread_create_args(reader, &array);
-	thread_join(readerOne);
-
-	thread_free(writer);
-	thread_free(readerOne);
-
-	mutex_free(array.mutex);
-
-	puts("\nPress ANY KEY to exit the program...");
-
-	return 0;
-
+    return 0;
 }

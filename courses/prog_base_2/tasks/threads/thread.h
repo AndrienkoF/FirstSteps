@@ -22,4 +22,5 @@ int thread_terminate(const thread_t * self);
 int thread_equals(const thread_t * self, const thread_t * obj);
 
 
+
 #endif // THREAD_H_INCLUDED
