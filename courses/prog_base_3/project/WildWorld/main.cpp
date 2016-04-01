@@ -97,7 +97,7 @@ int main(){
 		}
 
         ///////////////////////////////// УПРАВЛЕНИЕ ПЕРСОНАЖЕМ "HERO" //////////////////////////////////////////////////
-		if ((Keyboard::isKeyPressed(Keyboard::Right))){ //если нажата клавиша стрелка влево или англ буква А
+		if (Keyboard::isKeyPressed(Keyboard::Right)){ //если нажата клавиша стрелка влево или англ буква А
 			hero.dir = 0;
 			hero.speed = 0.1;
 			CurrentFrame += 0.005*time;                 //служит для прохождения по "кадрам". переменная доходит до трех суммируя произведение времени и скорости. изменив 0.005 можно изменить скорость анимации
@@ -105,7 +105,7 @@ int main(){
 			hero.sprite.setTextureRect(IntRect(46 *int(CurrentFrame), 0, 46, 56));
             getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
 		}
-		if ((Keyboard::isKeyPressed(Keyboard::Left))){  //если нажата клавиша стрелка влево или англ буква А
+		if (Keyboard::isKeyPressed(Keyboard::Left)){  //если нажата клавиша стрелка влево или англ буква А
 			hero.dir = 1;
 			hero.speed = 0.1;
 			CurrentFrame += 0.005*time;
@@ -113,13 +113,13 @@ int main(){
 			hero.sprite.setTextureRect(IntRect(46 *int(CurrentFrame), 0, -46, 56));
 			getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
 		}
-        if ((Keyboard::isKeyPressed(Keyboard::Up))){
+        if (Keyboard::isKeyPressed(Keyboard::Up)){
                 hero.dir = 3;
                 hero.speed = 0.1;
                 hero.sprite.setTextureRect(IntRect(144, 112, 48, 56));
                 getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
         }
-        if ((Keyboard::isKeyPressed(Keyboard::Down))){
+        if (Keyboard::isKeyPressed(Keyboard::Down)){
                 hero.dir = 2;
                 hero.speed = 0.1;
                 hero.sprite.setTextureRect(IntRect(92, 112, 48, 56));
@@ -129,6 +129,7 @@ int main(){
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         hero.update(time);
+        viewMap(time);            //скроллинга карты, передаем ей время sfml
         window.setView(view);     //"оживляем" камеру в окне sfml
 		window.clear();
 
@@ -144,7 +145,7 @@ int main(){
 		}
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		window.draw(hero.sprite);     //выводим спрайт на экран
+		//window.draw(hero.sprite);     //выводим спрайт на экран
 		window.display();
 	}
 
