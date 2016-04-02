@@ -385,15 +385,15 @@
 1459160710 d:\op\own game\wildworld\map.h
 	<SFML\Graphics.hpp>
 
-1459532078 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\main.cpp
+1459620096 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"map.h"
 	"view.h"
 
-1459160710 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\map.h
+1459619323 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\map.h
 	<SFML\Graphics.hpp>
 
-1459532719 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\view.h
+1459619323 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\view.h
 	<SFML/Graphics.hpp>
 

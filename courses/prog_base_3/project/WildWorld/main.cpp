@@ -3,7 +3,7 @@
 #include "map.h"      //подключили код с картой
 #include "view.h"     //подключили код с видом камеры
 
-using namespace sf;  //включаем пространство имен sf, чтобы постоянно не писать sf::
+using namespace sf;   //включаем пространство имен sf, чтобы постоянно не писать sf::
 
 /////////////////////////////////////////// КЛАСС ИГРОКА /////////////////////////////////////////////////////////
 
@@ -55,6 +55,7 @@ public:
 
         speed = 0;
         sprite.setPosition(x,y);
+		interactionWithMap();//вызываем функцию, отвечающую за взаимодействие с картой
     }
 
     float getPlayerCoordinateX(){	//этим методом будем забирать координату Х
@@ -63,6 +64,26 @@ public:
     float getPlayerCoordinateY(){	//этим методом будем забирать координату Y
         return y;
     }
+
+    void interactionWithMap(){   //функция взаимодействия с картой
+        for (int i = y / 32; i < (y + h) / 32; i++)
+        for (int j = x / 32; j < (x + w) / 32; j++){
+            if (TileMap[i][j] == '0'){
+                if (dy > 0){
+                    y = i * 32 - h;
+                }
+                if (dy < 0){
+                    y = i * 32 + 32;
+                }
+                if (dx > 0){
+                    x = j * 32 - w;
+                }
+                if (dx < 0){
+                    x = j * 32 + 32;
+                }
+            }
+        }
+	}
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +124,6 @@ int main(){
 			CurrentFrame += 0.005*time;                 //служит для прохождения по "кадрам". переменная доходит до трех суммируя произведение времени и скорости. изменив 0.005 можно изменить скорость анимации
 			if (CurrentFrame > 5) CurrentFrame -= 3;    // если пришли к третьему кадру - откидываемся назад.
 			hero.sprite.setTextureRect(IntRect(46 *int(CurrentFrame), 0, 46, 56));
-            getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left)){  //если нажата клавиша стрелка влево или англ буква А
 			hero.dir = 1;
@@ -111,33 +131,21 @@ int main(){
 			CurrentFrame += 0.005*time;
 			if (CurrentFrame > 5) CurrentFrame -= 2;
 			hero.sprite.setTextureRect(IntRect(46 *int(CurrentFrame), 0, -46, 56));
-			getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
 		}
         if (Keyboard::isKeyPressed(Keyboard::Up)){
                 hero.dir = 3;
                 hero.speed = 0.1;
                 hero.sprite.setTextureRect(IntRect(144, 112, 48, 56));
-                getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
         }
         if (Keyboard::isKeyPressed(Keyboard::Down)){
                 hero.dir = 2;
                 hero.speed = 0.1;
                 hero.sprite.setTextureRect(IntRect(92, 112, 48, 56));
-                getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
         }
 
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
         hero.update(time);
-
-        /////////////////////////////////// ППЛЮШКИ ДЛЯ КАМЕРЫ //////////////////////////////////////////////////////
-
-        //viewmap(time);            //скроллинга карты, передаем ей время sfml
-        //changeview();             //плюшки с камерой
         window.setView(view);     //"оживляем" камеру в окне sfml
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 		window.clear();
 
 		/////////////////////////////////////////////  РИСУЕМ КАРТУ  /////////////////////////////////////////////
