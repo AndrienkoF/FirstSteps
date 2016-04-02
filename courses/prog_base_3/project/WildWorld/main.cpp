@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <sstream>
 #include "map.h"      //подключили код с картой
 #include "view.h"     //подключили код с видом камеры
 
@@ -13,12 +14,14 @@ private: float x, y = 0;             //объявили переменные, в конструкторе Playe
 public:
 	float w, h, dx, dy, speed;   // dx dy speed будут = 0 в конструкторе класса ниже
     int dir;                     //направление (движения) игрока
+    int playerScore;             //хранение очков
     String File;
     Image image;                 //изображение
     Texture texture;             //текстура
     Sprite sprite;               //спрайт
 
     Player (String F, float X, float Y, float W, float H){
+        dir = 0; speed = 0; playerScore = 0;
         File = F;
         float w = W;
         float h = H;
@@ -82,6 +85,10 @@ public:
                     x = j * 32 + 32;
                 }
             }
+            if (TileMap[i][j] == 's') {
+				playerScore++;
+				TileMap[i][j] = ' ';
+			}
         }
 	}
 };
@@ -91,6 +98,14 @@ public:
 int main(){
 	RenderWindow window(VideoMode(640, 480), "WildWorld");  //увеличили для удобства размер окна
     view.reset(sf::FloatRect(0, 0, 640, 480));              //размер "вида" камеры
+
+    ////////////////////////// ШРИФТ //////////////////////////////////////////////////////////////////////////////
+    Font font;   //шрифт
+    font.loadFromFile("font/CyrilicOld.ttf");   //файл шрифта
+    Text text("", font, 20);
+    text.setColor(Color::Green);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);   //жирный и подчеркнутый текст
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Image map_image;                                        //объект изображения для карты
 	map_image.loadFromFile("images/map.png");               //загружаем файл для карты
@@ -160,6 +175,13 @@ int main(){
 		}
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        std::ostringstream playerScoreString;
+		playerScoreString << hero.playerScore;		 //занесли в нее число очков
+		text.setString("Собрано камней:" + playerScoreString.str());            //методом .str() вызываем сформированную строку
+		text.setPosition(view.getCenter().x - 310, view.getCenter().y - 240);   //задаем позицию текста, отступая от центра камеры
+		window.draw(text);//рисую этот текст
+
+		window.draw(text);            //рисую этот текст
 		window.draw(hero.sprite);     //выводим спрайт на экран
 		window.display();
 	}
