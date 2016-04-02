@@ -9,7 +9,7 @@ void receieve(SOCKET recvSocket, char * buffer);
 void receieveSecret(char* buffer, char* host_name, SOCKET recvSocket);
 void saveMatrixInFile(const char * pwrite, char* buffer);
 int fileLength(const char * pread);
-void downloadMatrix(const char * pread, int massiv[][]);
+void downloadMatrix(const char * pread, int massiv[20][20]);
 int indexColumn(char* buffer);
 void resultPost(SOCKET recvSocket, char* host_name, int maxColIndex);
 

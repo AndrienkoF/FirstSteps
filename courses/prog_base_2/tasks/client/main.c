@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <string.h>
 #include <ctype.h>
+#include "client.h"
 
 #pragma comment(lib,"ws2_32.lib")
 
@@ -61,6 +62,9 @@ int main(void) {
 
 	// Print out receieved socket data
     printf("\n%s\r\n\n", buffer);
+
+    closesocket(recvSocket);
+	WSACleanup();
 
     system("pause");
     return 0;

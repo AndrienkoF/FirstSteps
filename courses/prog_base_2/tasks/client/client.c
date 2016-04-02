@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "client.h"
 
 #pragma comment(lib,"ws2_32.lib") //Winsock Library
 
