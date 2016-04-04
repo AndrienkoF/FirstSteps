@@ -114,7 +114,7 @@ int main(){
 	Sprite s_map;                                           //создаём спрайт для карты
 	s_map.setTexture(map);                                  //заливаем текстуру спрайтом
 
-    Player hero("allHero.png", 250, 250, 48, 56);
+    Player hero("Hero.png", 250, 250, 37, 55);
 
     float CurrentFrame = 2;
     Clock clock; //создаем переменную времени, привязка ко времени(а не загруженности/мощности процессора).
@@ -137,25 +137,28 @@ int main(){
 			hero.dir = 0;
 			hero.speed = 0.1;
 			CurrentFrame += 0.005*time;                 //служит для прохождения по "кадрам". переменная доходит до трех суммируя произведение времени и скорости. изменив 0.005 можно изменить скорость анимации
-			if (CurrentFrame > 5) CurrentFrame -= 3;    // если пришли к третьему кадру - откидываемся назад.
-			hero.sprite.setTextureRect(IntRect(46 *int(CurrentFrame), 0, 46, 56));
+			if (CurrentFrame > 3) CurrentFrame -= 3;    // если пришли к третьему кадру - откидываемся назад.
+			hero.sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 0, 37, 55));
 		}
-		if (Keyboard::isKeyPressed(Keyboard::Left)){  //если нажата клавиша стрелка влево или англ буква А
+		if (Keyboard::isKeyPressed(Keyboard::Left)){
 			hero.dir = 1;
 			hero.speed = 0.1;
 			CurrentFrame += 0.005*time;
-			if (CurrentFrame > 5) CurrentFrame -= 2;
-			hero.sprite.setTextureRect(IntRect(46 *int(CurrentFrame), 0, -46, 56));
+			if (CurrentFrame > 4) CurrentFrame -= 3;
+			hero.sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 61, 37, 55));
 		}
         if (Keyboard::isKeyPressed(Keyboard::Up)){
                 hero.dir = 3;
                 hero.speed = 0.1;
-                hero.sprite.setTextureRect(IntRect(144, 112, 48, 56));
+                if (CurrentFrame > 3) CurrentFrame -= 3;
+                hero.sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 0, 37, 55));
         }
         if (Keyboard::isKeyPressed(Keyboard::Down)){
                 hero.dir = 2;
                 hero.speed = 0.1;
-                hero.sprite.setTextureRect(IntRect(92, 112, 48, 56));
+                CurrentFrame += 0.005*time;
+                if (CurrentFrame > 4) CurrentFrame -= 3;
+                hero.sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 61, 37, 55));
         }
 
         getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
