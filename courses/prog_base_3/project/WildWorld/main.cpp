@@ -1,39 +1,39 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
-#include "map.h"      //подключили код с картой
-#include "view.h"     //подключили код с видом камеры
+#include "map.h"      //РєР°СЂС‚Р°
+#include "view.h"     //РІРёРґ РєР°РјРµСЂС‹
 
-using namespace sf;   //включаем пространство имен sf, чтобы постоянно не писать sf::
+using namespace sf;   //РІРєР»СЋС‡Р°РµРј РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РёРјРµРЅ sf (sf::)
 
-/////////////////////////////////////////// КЛАСС ИГРОКА /////////////////////////////////////////////////////////
+/////////////////////////////////////////// РљР›РђРЎРЎ РР“Р РћРљРђ /////////////////////////////////////////////////////////
 
 class Player {
 
-private: float x, y = 0;             //объявили переменные, в конструкторе Player ниже дадим им значения
+private: float x, y = 0;
 public:
-	float w, h, dx, dy, speed;   // dx dy speed будут = 0 в конструкторе класса ниже
-    int dir;                     //направление (движения) игрока
-    int playerScore;             //хранение очков
+	float w, h, dx, dy, speed;
+    int dir;                     //РЅР°РїСЂР°РІР»РµРЅРёРµ (РґРІРёР¶РµРЅРёСЏ) РёРіСЂРѕРєР°
+    int playerScore;
     String File;
-    Image image;                 //изображение
-    Texture texture;             //текстура
-    Sprite sprite;               //спрайт
+    Image image;
+    Texture texture;
+    Sprite sprite;
 
     Player (String F, float X, float Y, float W, float H){
         dir = 0; speed = 0; playerScore = 0;
         File = F;
         float w = W;
         float h = H;
-        image.loadFromFile("images/" + File);      //запихиваем наше изображение
-        //image.createMaskFromColor(Color( , , )); //можно убрать ненунжный цвет !!!
-        texture.loadFromImage(image);              //закидываем изображение в текстуру
-        sprite.setTexture(texture);                //заливаем спрайт текстурой
-        x = X, y = Y;                              //координаты появления спрайта
-        sprite.setTextureRect(IntRect(0,0,w,h));   //задаем спрайту прямоугольник
+        image.loadFromFile("images/" + File);
+        //image.createMaskFromColor(Color( , , )); //РјРѕР¶РЅРѕ СѓР±СЂР°С‚СЊ РЅРµРЅСѓРЅР¶РЅС‹Р№ С†РІРµС‚ !!!
+        texture.loadFromImage(image);              //Р·Р°РєРёРґС‹РІР°РµРј РёР·РѕР±СЂР°Р¶РµРЅРёРµ РІ С‚РµРєСЃС‚СѓСЂСѓ
+        sprite.setTexture(texture);                //Р·Р°Р»РёРІР°РµРј СЃРїСЂР°Р№С‚ С‚РµРєСЃС‚СѓСЂРѕР№
+        x = X, y = Y;                              //РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕСЏРІР»РµРЅРёСЏ СЃРїСЂР°Р№С‚Р°
+        sprite.setTextureRect(IntRect(0,0,w,h));   //Р·Р°РґР°РµРј СЃРїСЂР°Р№С‚Сѓ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
     }
 
-    void update(float time){ //функция для движения
+    void update(float time){  //С„СѓРЅРєС†РёСЏ РґР»СЏ РґРІРёР¶РµРЅРёСЏ
         switch(dir){
         case 0:
             dx = speed;
@@ -58,17 +58,17 @@ public:
 
         speed = 0;
         sprite.setPosition(x,y);
-		interactionWithMap();//вызываем функцию, отвечающую за взаимодействие с картой
+		interactionWithMap();
     }
 
-    float getPlayerCoordinateX(){	//этим методом будем забирать координату Х
+    float getPlayerCoordinateX(){
         return x;
     }
-    float getPlayerCoordinateY(){	//этим методом будем забирать координату Y
+    float getPlayerCoordinateY(){
         return y;
     }
 
-    void interactionWithMap(){   //функция взаимодействия с картой
+    void interactionWithMap(){   //С„СѓРЅРєС†РёСЏ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ СЃ РєР°СЂС‚РѕР№
         for (int i = y / 32; i < (y + h) / 32; i++)
         for (int j = x / 32; j < (x + w) / 32; j++){
             if (TileMap[i][j] == '0'){
@@ -96,35 +96,35 @@ public:
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main(){
-	RenderWindow window(VideoMode(640, 480), "WildWorld");  //увеличили для удобства размер окна
-    view.reset(sf::FloatRect(0, 0, 640, 480));              //размер "вида" камеры
+	RenderWindow window(VideoMode(640, 480), "WildWorld");
+    view.reset(sf::FloatRect(0, 0, 640, 480));              //СЂР°Р·РјРµСЂ "РІРёРґР°" РєР°РјРµСЂС‹
 
-    ////////////////////////// ШРИФТ //////////////////////////////////////////////////////////////////////////////
-    Font font;   //шрифт
-    font.loadFromFile("font/CyrilicOld.ttf");   //файл шрифта
+    ////////////////////////// РЁР РР¤Рў //////////////////////////////////////////////////////////////////////////////
+    Font font;
+    font.loadFromFile("font/CyrilicOld.ttf");   //С„Р°Р№Р» С€СЂРёС„С‚Р°
     Text text("", font, 20);
     text.setColor(Color::Green);
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);   //жирный и подчеркнутый текст
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);   //Р¶РёСЂРЅС‹Р№ Рё РїРѕРґС‡РµСЂРєРЅСѓС‚С‹Р№ С‚РµРєСЃС‚
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Image map_image;                                        //объект изображения для карты
-	map_image.loadFromFile("images/map.png");               //загружаем файл для карты
-	Texture map;                                            //текстура карты
-	map.loadFromImage(map_image);                           //заряжаем текстуру картинкой
-	Sprite s_map;                                           //создаём спрайт для карты
-	s_map.setTexture(map);                                  //заливаем текстуру спрайтом
+    Image map_image;                                        //РѕР±СЉРµРєС‚ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РґР»СЏ РєР°СЂС‚С‹
+	map_image.loadFromFile("images/map.png");               //Р·Р°РіСЂСѓР¶Р°РµРј С„Р°Р№Р» РґР»СЏ РєР°СЂС‚С‹
+	Texture map;
+	map.loadFromImage(map_image);                           //Р·Р°СЂСЏР¶Р°РµРј С‚РµРєСЃС‚СѓСЂСѓ РєР°СЂС‚РёРЅРєРѕР№
+	Sprite s_map;
+	s_map.setTexture(map);                                  //Р·Р°Р»РёРІР°РµРј С‚РµРєСЃС‚СѓСЂСѓ СЃРїСЂР°Р№С‚РѕРј
 
     Player hero("Hero.png", 250, 250, 37, 55);
 
     float CurrentFrame = 2;
-    Clock clock; //создаем переменную времени, привязка ко времени(а не загруженности/мощности процессора).
+    Clock clock;    //СЃРѕР·РґР°РµРј РїРµСЂРµРјРµРЅРЅСѓСЋ РІСЂРµРјРµРЅРё, РїСЂРёРІСЏР·РєР° РєРѕ РІСЂРµРјРµРЅРё(Р° РЅРµ Р·Р°РіСЂСѓР¶РµРЅРЅРѕСЃС‚Рё/РјРѕС‰РЅРѕСЃС‚Рё РїСЂРѕС†РµСЃСЃРѕСЂР°).
 
 	while (window.isOpen()){
 
-	    float time = clock.getElapsedTime().asMicroseconds(); //дать прошедшее время в микросекундах
-        clock.restart();                                      //перезагружает время
-        time = time/800;                                      //скорость игры
-		//std::cout << time << "\n";                          //смотрим как живет время (перезагружается, как видим)
+	    float time = clock.getElapsedTime().asMicroseconds(); //РґР°С‚СЊ РїСЂРѕС€РµРґС€РµРµ РІСЂРµРјСЏ РІ РјРёРєСЂРѕСЃРµРєСѓРЅРґР°С…
+        clock.restart();                                      //РїРµСЂРµР·Р°РіСЂСѓР¶Р°РµС‚ РІСЂРµРјСЏ
+        time = time/800;                                      //СЃРєРѕСЂРѕСЃС‚СЊ РёРіСЂС‹
+		//std::cout << time << "\n";                          //РІСЂРµРјСЏ
 
 		Event event;
 		while (window.pollEvent(event)){
@@ -132,12 +132,12 @@ int main(){
 				window.close();
 		}
 
-        ///////////////////////////////// УПРАВЛЕНИЕ ПЕРСОНАЖЕМ "HERO" //////////////////////////////////////////////////
-		if (Keyboard::isKeyPressed(Keyboard::Right)){ //если нажата клавиша стрелка влево или англ буква А
+        ///////////////////////////////// РЈРџР РђР’Р›Р•РќРР• РџР•Р РЎРћРќРђР–Р•Рњ "HERO" //////////////////////////////////////////////////
+		if (Keyboard::isKeyPressed(Keyboard::Right)){
 			hero.dir = 0;
 			hero.speed = 0.1;
-			CurrentFrame += 0.005*time;                 //служит для прохождения по "кадрам". переменная доходит до трех суммируя произведение времени и скорости. изменив 0.005 можно изменить скорость анимации
-			if (CurrentFrame > 3) CurrentFrame -= 3;    // если пришли к третьему кадру - откидываемся назад.
+			CurrentFrame += 0.005*time;                 //СЃР»СѓР¶РёС‚ РґР»СЏ РїСЂРѕС…РѕР¶РґРµРЅРёСЏ РїРѕ "РєР°РґСЂР°Рј". РїРµСЂРµРјРµРЅРЅР°СЏ РґРѕС…РѕРґРёС‚ РґРѕ С‚СЂРµС… СЃСѓРјРјРёСЂСѓСЏ РїСЂРѕРёР·РІРµРґРµРЅРёРµ РІСЂРµРјРµРЅРё Рё СЃРєРѕСЂРѕСЃС‚Рё. РёР·РјРµРЅРёРІ 0.005 РјРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ СЃРєРѕСЂРѕСЃС‚СЊ Р°РЅРёРјР°С†РёРё
+			if (CurrentFrame > 3) CurrentFrame -= 3;
 			hero.sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 0, 37, 55));
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left)){
@@ -161,31 +161,30 @@ int main(){
                 hero.sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 61, 37, 55));
         }
 
-        getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
+        getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //РїРµСЂРµРґР°РµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ РёРіСЂРѕРєР° РІ С„СѓРЅРєС†РёСЋ СѓРїСЂР°РІР»РµРЅРёСЏ РєР°РјРµСЂРѕР№
         hero.update(time);
-        window.setView(view);     //"оживляем" камеру в окне sfml
+        window.setView(view);     //"РѕР¶РёРІР»СЏРµРј" РєР°РјРµСЂСѓ РІ РѕРєРЅРµ sfml
 		window.clear();
 
-		/////////////////////////////////////////////  РИСУЕМ КАРТУ  /////////////////////////////////////////////
+		/////////////////////////////////////////////  Р РРЎРЈР•Рњ РљРђР РўРЈ  /////////////////////////////////////////////
 		for (int i = 0; i < HEIGHT_MAP; i++)
 		for (int j = 0; j < WIDTH_MAP; j++){
-			if (TileMap[i][j] == ' ')   s_map.setTextureRect(IntRect(0, 0, 32, 32));  //если встретили символ пробел, то рисуем 1й квадратик
-			if (TileMap[i][j] == 's')   s_map.setTextureRect(IntRect(32, 0, 32, 32)); //если встретили символ s, то рисуем 2й квадратик
-			if ((TileMap[i][j] == '0')) s_map.setTextureRect(IntRect(64, 0, 32, 32)); //если встретили символ 0, то рисуем 3й квадратик
+			if (TileMap[i][j] == ' ')   s_map.setTextureRect(IntRect(0, 0, 32, 32));
+			if (TileMap[i][j] == 's')   s_map.setTextureRect(IntRect(32, 0, 32, 32));
+			if ((TileMap[i][j] == '0')) s_map.setTextureRect(IntRect(64, 0, 32, 32));
 
-			s_map.setPosition(j * 32, i * 32);    //задает каждому из них позицию
-			window.draw(s_map);                   //рисуем квадратики на экран
+			s_map.setPosition(j * 32, i * 32);    //Р·Р°РґР°РµС‚ РєР°Р¶РґРѕРјСѓ РёР· РЅРёС… РїРѕР·РёС†РёСЋ
+			window.draw(s_map);                   //СЂРёСЃСѓРµРј РєРІР°РґСЂР°С‚РёРєРё РЅР° СЌРєСЂР°РЅ
 		}
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         std::ostringstream playerScoreString;
-		playerScoreString << hero.playerScore;		 //занесли в нее число очков
-		text.setString("Собрано камней:" + playerScoreString.str());            //методом .str() вызываем сформированную строку
-		text.setPosition(view.getCenter().x - 310, view.getCenter().y - 240);   //задаем позицию текста, отступая от центра камеры
-		window.draw(text);//рисую этот текст
+		playerScoreString << hero.playerScore;		                            //Р·Р°РЅРµСЃР»Рё РІ РЅРµРµ С‡РёСЃР»Рѕ РѕС‡РєРѕРІ
+		text.setString("Stones:" + playerScoreString.str());                    //РјРµС‚РѕРґРѕРј .str() РІС‹Р·С‹РІР°РµРј СЃС„РѕСЂРјРёСЂРѕРІР°РЅРЅСѓСЋ СЃС‚СЂРѕРєСѓ
+		text.setPosition(view.getCenter().x - 310, view.getCenter().y - 240);   //Р·Р°РґР°РµРј РїРѕР·РёС†РёСЋ С‚РµРєСЃС‚Р°, РѕС‚СЃС‚СѓРїР°СЏ РѕС‚ С†РµРЅС‚СЂР° РєР°РјРµСЂС‹
+		window.draw(text);
 
-		window.draw(text);            //рисую этот текст
-		window.draw(hero.sprite);     //выводим спрайт на экран
+		window.draw(hero.sprite);     //РІС‹РІРѕРґРёРј СЃРїСЂР°Р№С‚ РЅР° СЌРєСЂР°РЅ
 		window.display();
 	}
 
