@@ -145,6 +145,7 @@ int main(){
     Clock clock;    //создаем переменную времени, привязка ко времени(а не загруженности/мощности процессора).
     Clock gameTimeClock;                                  //время игры
     int gameTime = 0;
+    int createObjectForMapTimer = 0; //таймер для рандома
     while (window.isOpen()){
 
         float time = clock.getElapsedTime().asMicroseconds();
@@ -156,31 +157,31 @@ int main(){
 		Event event;
 		while (window.pollEvent(event)){
 
-         if (event.type == sf::Event::Closed)
-         window.close();
+            if (event.type == sf::Event::Closed)
+            window.close();
 
-         if (event.type == Event::KeyPressed)     //событие нажатия клавиши
-         if ((event.key.code == Keyboard::Tab)){  //если нажата клавиша ТАБ
-            switch (showBackpack){
-             case true: {
-                std::ostringstream playerHealthString;
-                playerHealthString << hero.health;
-                std::ostringstream playerScoreString;
-                playerScoreString << hero.playerScore;
-                text.setString("\nHealth" + playerHealthString.str() + "\n\nStones:" + playerScoreString.str());
-                text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);
-                s_backpack.setPosition(view.getCenter().x + 115, view.getCenter().y - 130);
-                showBackpack = false;
-                break;
-             }
-             case false:{
-                text.setString("");
-                showBackpack = true;
-             break;
-             }
+            if (event.type == Event::KeyPressed)     //событие нажатия клавиши
+            if ((event.key.code == Keyboard::Tab)){  //если нажата клавиша ТАБ
+                switch (showBackpack){
+                    case true: {
+                        std::ostringstream playerHealthString;
+                        playerHealthString << hero.health;
+                        std::ostringstream playerScoreString;
+                        playerScoreString << hero.playerScore;
+                        text.setString("\nHealth" + playerHealthString.str() + "\n\nStones:" + playerScoreString.str());
+                        text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);
+                        s_backpack.setPosition(view.getCenter().x + 115, view.getCenter().y - 130);
+                        showBackpack = false;
+                        break;
+                    }
+                    case false:{
+                        text.setString("");
+                        showBackpack = true;
+                        break;
+                    }
+                }
             }
         }
-    }
 
         ///////////////////////////////// УПРАВЛЕНИЕ ПЕРСОНАЖЕМ "HERO" //////////////////////////////////////////////////
         if (hero.life) {
@@ -216,11 +217,20 @@ int main(){
             hero.sprite.setTextureRect(IntRect(0 , 181, 26, 37));
         }
         getPlayerCoordinateForView(hero.getPlayerCoordinateX(), hero.getPlayerCoordinateY());   //передаем координаты игрока в функцию управления камерой
+
+        ////////////////////////////// ГЕНЕРАЦИЯ ПРЕДМЕТОВ ///////////////////////////////////////////////////////
+        createObjectForMapTimer += time;
+		if (createObjectForMapTimer > 3000){  //интервал 3 секунды
+			randomMapGenerate();
+			createObjectForMapTimer = 0;
+		}
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         hero.update(time);
         window.setView(view);     //"оживляем" камеру в окне sfml
 		window.clear();
 
-		/////////////////////////////////////////////  РИСУЕМ КАРТУ  /////////////////////////////////////////////
+		////////////////////////////////  РИСУЕМ КАРТУ  //////////////////////////////////////////////////////////
 		for (int i = 0; i < HEIGHT_MAP; i++)
 		for (int j = 0; j < WIDTH_MAP; j++){
 			if (TileMap[i][j] == ' ')   s_map.setTextureRect(IntRect(0, 0, 32, 32));
@@ -247,14 +257,14 @@ int main(){
 		text.setString("Helth: " + playerHealthString.str() + "  Time: "+gameTimeString.str());
 		text.setPosition(view.getCenter().x + 125, view.getCenter().y - 240);
 		window.draw(text);*/
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         if (!showBackpack) {
-			text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);   //позиция текстового блока
+			text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);         //позиция текстового блока
 			s_backpack.setPosition(view.getCenter().x + 115, view.getCenter().y - 130);   //позиция фона для блока
 			window.draw(s_backpack);
 			window.draw(text);
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		window.draw(hero.sprite);     //выводим спрайт на экран
 		window.display();
