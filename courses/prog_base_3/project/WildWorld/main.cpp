@@ -117,8 +117,8 @@ int main(){
     Font font;
     font.loadFromFile("font/CyrilicOld.ttf");   //файл шрифта
     Text text("", font, 20);
-    text.setColor(Color::Green);
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);   //жирный и подчеркнутый текст
+    text.setColor(Color::Black);
+    //text.setStyle(sf::Text::Bold | sf::Text::Underlined);   //жирный и подчеркнутый текст
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Image map_image;                                        //объект изображения для карты
@@ -128,8 +128,18 @@ int main(){
 	Sprite s_map;
 	s_map.setTexture(map);                                  //заливаем текстуру спрайтом
 
-    Player hero("Hero.png", 250, 250, 37, 55);
+    Image backpack_image;
+	backpack_image.loadFromFile("images/backpack.jpg");
+	backpack_image.createMaskFromColor(Color(0, 0, 0));
+	Texture backpack_texture;
+	backpack_texture.loadFromImage(backpack_image);
+	Sprite s_backpack;
+	s_backpack.setTexture(backpack_texture);
+	s_backpack.setTextureRect(IntRect(0, 0, 340, 510));
+	s_backpack.setScale(0.6f, 0.7f);  //уменьшили картинку
 
+    Player hero("Hero.png", 250, 250, 37, 55);
+    bool showBackpack = true;  //отвечает за появление миссии на экран
     float CurrentFrame = 0;
 
     Clock clock;    //создаем переменную времени, привязка ко времени(а не загруженности/мощности процессора).
@@ -145,9 +155,32 @@ int main(){
 
 		Event event;
 		while (window.pollEvent(event)){
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+
+         if (event.type == sf::Event::Closed)
+         window.close();
+
+         if (event.type == Event::KeyPressed)     //событие нажатия клавиши
+         if ((event.key.code == Keyboard::Tab)){  //если нажата клавиша ТАБ
+            switch (showBackpack){
+             case true: {
+                std::ostringstream playerHealthString;
+                playerHealthString << hero.health;
+                std::ostringstream playerScoreString;
+                playerScoreString << hero.playerScore;
+                text.setString("\nHealth" + playerHealthString.str() + "\n\nStones:" + playerScoreString.str());
+                text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);
+                s_backpack.setPosition(view.getCenter().x + 115, view.getCenter().y - 130);
+                showBackpack = false;
+                break;
+             }
+             case false:{
+                text.setString("");
+                showBackpack = true;
+             break;
+             }
+            }
+        }
+    }
 
         ///////////////////////////////// УПРАВЛЕНИЕ ПЕРСОНАЖЕМ "HERO" //////////////////////////////////////////////////
         if (hero.life) {
@@ -202,7 +235,7 @@ int main(){
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ///////////////////////// ВЫВОД ТЕКСТА НА ЭКРАН ///////////////////////////////////////////////////////////
-        std::ostringstream playerScoreString;
+        /*std::ostringstream playerScoreString;
 		playerScoreString << hero.playerScore;
 		text.setString("Stones:" + playerScoreString.str());                    //методом .str() вызываем сформированную строку
 		text.setPosition(view.getCenter().x - 310, view.getCenter().y - 240);   //задаем позицию текста, отступая от центра камеры
@@ -213,8 +246,15 @@ int main(){
 		gameTimeString << gameTime;
 		text.setString("Helth: " + playerHealthString.str() + "  Time: "+gameTimeString.str());
 		text.setPosition(view.getCenter().x + 125, view.getCenter().y - 240);
-		window.draw(text);
+		window.draw(text);*/
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if (!showBackpack) {
+			text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);   //позиция текстового блока
+			s_backpack.setPosition(view.getCenter().x + 115, view.getCenter().y - 130);   //позиция фона для блока
+			window.draw(s_backpack);
+			window.draw(text);
+        }
 
 		window.draw(hero.sprite);     //выводим спрайт на экран
 		window.display();
