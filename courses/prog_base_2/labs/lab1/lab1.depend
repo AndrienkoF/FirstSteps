@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1460318923 source:d:\op\lab1\heap.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"heap.h"
+	"memory.h"
+
+1460321713 source:d:\op\lab1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"heap.h"
+	"memory.h"
+
+1459703836 source:d:\op\lab1\dedicatedmemory.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"heap.h"
+	"dedicatedMemory.h"
+
+1460314962 d:\op\lab1\heap.h
+	"memory.h"
+
+1459704072 d:\op\lab1\dedicatedmemory.h
+
+1460310574 d:\op\lab1\memory.h
+
+1460320704 source:d:\op\lab1\memory.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"heap.h"
+	"memory.h"
+
