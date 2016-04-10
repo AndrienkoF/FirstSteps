@@ -1,0 +1,56 @@
+[
+    {
+        "name": "James",
+        "surname": "Finch",
+        "birthdate": "1982-02-12",
+        "hometown": "New York City",
+        "education": "New York University",
+        "work":
+        [
+            {
+                "station": "Rock.FM",
+                "experienceOnRadioStation": 11,
+                "rating": 8.1
+            }
+        ],
+        "favoriteGenreOfMusic": "rock",
+        "favoriteSingerOrGroup": "AC/DC",
+        "favoriteSong": "Highway To Hell"
+    },
+    {
+        "name": "Lili",
+        "surname": "Holsted",
+        "birthdate": "1989-06-11",
+        "hometown": "Paris",
+        "education": "Pierre and Marie Curie University",
+        "work":
+        [
+            {
+                "station": "Pop.FM",
+                "experienceOnRadioStation": 6,
+                "rating": 9.9
+            }
+        ],
+        "favoriteGenreOfMusic": "pop",
+        "favoriteSingerOrGroup": "Shakira",
+        "favoriteSong": "Waka Waka"
+    },
+    {
+        "name": "Mett",
+        "surname": "Klark",
+        "birthdate": "1980-07-10",
+        "hometown": "Toronto",
+        "education": "University of Toronto",
+        "work":
+        [
+            {
+                "station": "Lucky.FM",
+                "experienceOnRadioStation": 12,
+                "rating": 9.8
+            }
+        ],
+        "favoriteGenreOfMusic": "indie-rock",
+        "favoriteSingerOrGroup": "Imagine Dragons",
+        "favoriteSong": "Who We Are"
+    }
+]

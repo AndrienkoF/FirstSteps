@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1460296556 source:d:\op\hw\dataformats\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"leadingRadio.h"
+
+1460305817 source:d:\op\hw\dataformats\leadingradio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<libxml/parser.h>
+	<libxml/tree.h>
+	"leadingRadio.h"
+
+1460296333 d:\op\hw\dataformats\leadingradio.h
+

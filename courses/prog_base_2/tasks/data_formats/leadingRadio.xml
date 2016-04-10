@@ -1,0 +1,44 @@
+<leadingRadio>
+    <leading>
+        <name>James</name>
+        <surname>Finch</surname>
+        <birthdate>1982-02-12</birthdate>
+        <hometown>New York City</hometown>
+        <education>"New York University"</education>
+        <work>
+            <experienceOnRadioStation station = "Rock.FM">11</experienceOnRadioStation>
+            <rating>8.1</rating>
+        </work>
+        <favoriteGenreOfMusic>rock</favoriteGenreOfMusic>
+        <favoriteSingerOrGroup>AC/DC</favoriteSingerOrGroup>
+        <favoriteSong>Highway To Hell</favoriteSong>
+    </leading>
+    <leading>
+        <name>Lili</name>
+        <surname>Holsted</surname>
+        <birthdate>1989-06-11</birthdate>
+        <hometown>Paris</hometown>
+        <education>"Pierre and Marie Curie University"</education>
+        <work>
+            <experienceOnRadioStation station = "Pop.FM">6</experienceOnRadioStation>
+            <rating>9.9</rating>
+        </work>
+        <favoriteGenreOfMusic>pop</favoriteGenreOfMusic>
+        <favoriteSingerOrGroup>Shakira</favoriteSingerOrGroup>
+        <favoriteSong>Waka Waka</favoriteSong>
+    </leading>
+    <leading>
+        <name>Mett</name>
+        <surname>Klark</surname>
+        <birthdate>1980-07-10</birthdate>
+        <hometown>Toronto</hometown>
+        <education>"University of Toronto"</education>
+        <work>
+            <experienceOnRadioStation station = "Lucky.FM">12</experienceOnRadioStation>
+            <rating>9.5</rating>
+        </work>
+        <favoriteGenreOfMusic>indie-rock</favoriteGenreOfMusic>
+        <favoriteSingerOrGroup>Imagine Dragons</favoriteSingerOrGroup>
+        <favoriteSong>Who We Are</favoriteSong>
+    </leading>
+</leadingRadio>
