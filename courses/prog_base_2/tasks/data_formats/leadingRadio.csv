@@ -1,4 +1,4 @@
 name,surname,birthdate,hometown,education,experienceOnRadioStation,station,rating,favoriteGenreOfMusic,favoriteSingerOrGroup,favoriteSong
-James,Finch,12.02.1982,New York City,New York University,11,Rock.FM,8.9,rock,AC/DC,Highway To Hell
-Lili,Holsted,11.06.1989,Paris,Pierre and Marie Curie University,6,Pop.FM,9.9,pop,Shakira,Waka Waka
-Mett,Klark,10.07.1980,Toronto,University of Toronto,12,Lucky.FM,9.5,indie-rock,Imagine Dragons,Who We Are
+James,Finch,1982-02-12,New York City,New York University,11,Rock.FM,8.9,rock,AC/DC,Highway To Hell
+Lili,Holsted,1989-06-11,Paris,Pierre and Marie Curie University,6,Pop.FM,9.9,pop,Shakira,Waka Waka
+Mett,Klark,1980-07-10,Toronto,University of Toronto,12,Lucky.FM,9.5,indie-rock,Imagine Dragons,Who We Are
