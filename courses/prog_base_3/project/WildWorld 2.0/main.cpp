@@ -7,13 +7,12 @@
 using namespace sf;   //включаем пространство имен sf (sf::)
 
 /////////////////////////////////////////// КЛАСС ИГРОКА /////////////////////////////////////////////////////////
-
 class Player {
 
 private: float x, y = 0;
 public:
 	float w, h, dx, dy, speed, CurrentFrame;
-    int playerScore, health;
+    int playerScore, health, CurrentJump;;
     bool life, isMove, onGround;
     enum{
         left,
@@ -62,15 +61,10 @@ public:
                 if (CurrentFrame > 4) CurrentFrame -= 3;
                 sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 61, 37, 55));
             }
-            if (Keyboard::isKeyPressed(Keyboard::Up)){
-                    state = jump;
-                    dy = -0.5;
-                    onGround = false;
-
-            }
-            if (Keyboard::isKeyPressed(Keyboard::Down)){
-                    state = down;
-                    speed = 0.1;
+            if ((Keyboard::isKeyPressed(Keyboard::Up))&& (onGround)){
+                state = jump;
+                dy = -0.7;
+                onGround = false;
             }
         }else{
             state = stay;
@@ -83,14 +77,13 @@ public:
         switch(state){
             case right: {
                 dx = speed;
-
                 break;
             }
             case left:{
                 dx = -speed;
-
                 break;
             }
+            case up: break;
             case jump: break;
             case stay: dx = 0; break;
 		}
@@ -124,7 +117,9 @@ public:
 				if (Dy<0){y = i * 32 + 32;  dy = 0;}
 				if (Dx>0){x = j * 32 - w;}
 				if (Dx<0){x = j * 32 + 32;}
-			}
+			}else {
+			    onGround = false;
+            }
 			if (TileMap[i][j] == 's') {
 				playerScore++;
 				TileMap[i][j] = ' ';
@@ -136,9 +131,7 @@ public:
 			if (TileMap[i][j] == 'h') {
 				health += 20;
 				TileMap[i][j] = ' ';
-			} else {
-			    onGround = false;
-            }
+			}
 		}
 	}
 };
@@ -196,7 +189,7 @@ int main(){
             if (event.type == sf::Event::Closed)
             window.close();
 
-            if (event.type == Event::KeyPressed)     //событие нажатия клавиши
+           /* if (event.type == Event::KeyPressed)     //событие нажатия клавиши
             if ((event.key.code == Keyboard::Tab)){  //если нажата клавиша ТАБ
                 switch (showBackpack){
                     case true: {
@@ -204,7 +197,7 @@ int main(){
                         playerHealthString << hero.health;
                         std::ostringstream playerScoreString;
                         playerScoreString << hero.playerScore;
-                        text.setString("\nHealth" + playerHealthString.str() + "\n\nStones:" + playerScoreString.str());
+                        text.setString("\nHealth: " + playerHealthString.str() + "\n\nStones: " + playerScoreString.str());
                         text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);
                         s_backpack.setPosition(view.getCenter().x + 115, view.getCenter().y - 130);
                         showBackpack = false;
@@ -216,7 +209,7 @@ int main(){
                         break;
                     }
                 }
-            }
+            }*/
         }
 
         ///////////////////////////////// УПРАВЛЕНИЕ ПЕРСОНАЖЕМ "HERO" //////////////////////////////////////////////////
@@ -246,7 +239,7 @@ int main(){
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ///////////////////////// ВЫВОД ТЕКСТА НА ЭКРАН ///////////////////////////////////////////////////////////
-        /*std::ostringstream playerScoreString;
+        std::ostringstream playerScoreString;
 		playerScoreString << hero.playerScore;
 		text.setString("Stones:" + playerScoreString.str());                    //методом .str() вызываем сформированную строку
 		text.setPosition(view.getCenter().x - 310, view.getCenter().y - 240);   //задаем позицию текста, отступая от центра камеры
@@ -255,9 +248,9 @@ int main(){
         std::ostringstream playerHealthString, gameTimeString;
 		playerHealthString << hero.health;
 		gameTimeString << gameTime;
-		text.setString("Helth: " + playerHealthString.str() + "  Time: "+gameTimeString.str());
+		text.setString("Health: " + playerHealthString.str() + "  Time: "+gameTimeString.str());
 		text.setPosition(view.getCenter().x + 125, view.getCenter().y - 240);
-		window.draw(text);*/
+		window.draw(text);
 
         if (!showBackpack) {
 			text.setPosition(view.getCenter().x + 125, view.getCenter().y - 130);         //позиция текстового блока

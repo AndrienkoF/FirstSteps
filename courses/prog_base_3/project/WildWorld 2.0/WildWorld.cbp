@@ -38,8 +38,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="classPlayer.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="map.h" />
+		<Unit filename="text.h" />
 		<Unit filename="view.h" />
 		<Extensions>
 			<code_completion />

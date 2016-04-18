@@ -398,16 +398,21 @@
 1460220971 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\view.h
 	<SFML/Graphics.hpp>
 
-1460222250 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\main.cpp
+1460974710 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<sstream>
 	"map.h"
 	"view.h"
 
-1460221769 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\map.h
-	<SFML\Graphics.hpp>
-
-1460220971 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\view.h
+1460449149 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\map.h
 	<SFML/Graphics.hpp>
+
+1460445837 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\view.h
+	<SFML/Graphics.hpp>
+
+1460442984 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\classplayer.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
 
