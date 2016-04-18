@@ -1,0 +1,20 @@
+INSERT INTO Leading VALUES ('Test', 'Tstovich', 16, 'Kyiv','KPI' , 'Point',8.2, 4);
+
+DELETE FROM Leading WHERE ID < 3;
+
+SELECT * FROM Leading WHERE Age > 30
+
+SELECT *
+FROM Leading, Car
+WHERE Human.Id = Car.Owner;
+
+SELECT 	COUNT(*) as cnt, MAX(Age) as max_h, MIN(Rating) as min_w
+FROM 		Leading
+WHERE 		Age <= 17;
+
+CREATE TABLE `Song` (
+	`Id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`length`	INTEGER,
+	`name`	TEXT NOT NULL,
+	`year`	INTEGER
+);
