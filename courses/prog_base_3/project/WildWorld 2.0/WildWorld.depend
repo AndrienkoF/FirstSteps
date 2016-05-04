@@ -398,21 +398,38 @@
 1460220971 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld\view.h
 	<SFML/Graphics.hpp>
 
-1460974710 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\main.cpp
+1462353898 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\main.cpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
+	"map.h"
+	"view.h"
+	"classPlayer.h"
+
+1461047430 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\map.h
+	<SFML/Graphics.hpp>
+
+1462353887 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\view.h
+	<SFML/Graphics.hpp>
+
+1462354175 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\classplayer.h
+	<SFML/Graphics.hpp>
+	<windows.h>
+
+1462360737 source:d:\op\own game\2.1\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<sstream>
 	"map.h"
 	"view.h"
 
-1460449149 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\map.h
+1461047430 d:\op\own game\2.1\map.h
 	<SFML/Graphics.hpp>
 
-1460445837 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\view.h
+1462359827 d:\op\own game\2.1\view.h
 	<SFML/Graphics.hpp>
 
-1460442984 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 2.0\classplayer.h
+1462359835 d:\op\own game\2.1\allclasses.h
 	<SFML/Graphics.hpp>
-	<iostream>
-	<sstream>
+	<windows.h>
 

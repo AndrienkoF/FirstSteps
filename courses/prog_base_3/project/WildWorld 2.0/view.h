@@ -4,7 +4,7 @@ using namespace sf;
 
 sf::View view;    //объ€вили sfml объект "вид", который и €вл€етс€ камерой
 
-View getPlayerCoordinateForView(float x,float y){    //функци€ дл€ считывани€ координат игрока
+View setPlayerCoordinateForView(float x,float y){    //функци€ дл€ считывани€ координат игрока
 
 	float tempX = x; float tempY = y;   //считываем коорд игрока и провер€ем их, чтобы убрать кра€
     printf("%f  %f\n", tempX, tempY);
