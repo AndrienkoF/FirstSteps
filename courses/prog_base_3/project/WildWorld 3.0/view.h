@@ -1,0 +1,20 @@
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
+
+sf::View view;    //объ€вили sfml объект "вид", который и €вл€етс€ камерой
+
+View setPlayerCoordinateForView(float x,float y){    //функци€ дл€ считывани€ координат игрока
+
+	float tempX = x; float tempY = y;   //считываем коорд игрока и провер€ем их, чтобы убрать кра€
+    //printf("%f  %f\n", tempX, tempY);
+	if (x < 320) tempX = 320;    //убираем из вида левую сторону
+	if (y < 240) tempY = 240;    //верхнюю сторону
+	if (x > 3435) tempX = 3435;  //правую сторону
+	//if (y > 554) tempY = 554;    //нижнюю сторону
+    if(y > 624) tempY = 624;   //нижн€€ сторона
+
+
+	view.setCenter(tempX, tempY);       //следим за игроком, передава€ его координаты.
+	return view;
+}
