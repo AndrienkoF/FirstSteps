@@ -1,10 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
+//#include "map.h"           //карта
 #include "view.h"          //вид камеры
 #include "level.h"
 #include <vector>
-#include <list>
+//#include <list>
 
 
 using namespace sf;   //включаем пространство имен sf (sf::)
@@ -32,8 +33,6 @@ public:
     FloatRect getRect(){    //функция получения прямоугольника, его координат и размер
         return FloatRect(x, y, w, h);    //для проверки столкновения
     }
-
-    virtual void update (float time) = 0;  //все потомки переопределяют эту функцию
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -169,15 +168,11 @@ int main(){
     Image easyEnemy1Image;
     easyEnemy1Image.loadFromFile("images/Goat.png");
 
-    std::list<Entity*> entities;   //создаем список
-    std::list<Entity*>::iterator it;   //итератор, чтобы проходить по элементам списка
-    std::vector<Object> e = lvl.GetObjects("easyEnemy");
-    for (int i = 0; i < e.size(); i++){
-        entities.push_back(new Enemy(easyEnemy1Image, "EasyEnemy1", lvl, e[i].rect.left, e[i].rect.top, 46, 45));
-    }
-
     Object player = lvl.GetObject("player");
+    Object easyEnemyObject = lvl.GetObject("easyEnemy");
+
     Player hero(heroImage, "Hero", lvl, player.rect.left, player.rect.top, 37, 50);
+    Enemy easyEnemy1(easyEnemy1Image, "EasyEnemy1", lvl, easyEnemyObject.rect.left, easyEnemyObject.rect.top, 46, 45);
 
     Clock clock;    //создаем переменную времени, привязка ко времени(а не загруженности/мощности процессора).
     while (window.isOpen()){
@@ -192,18 +187,14 @@ int main(){
         }
 
         hero.update(time);
-        for (it = entities.begin(); it != entities.end(); it++){
-            (*it)->update(time);
-        }
+        easyEnemy1.update(time);
 
         window.setView(view);
 		window.clear();
 
 		lvl.Draw(window); //рисуем карту
 
-        for (it = entities.begin(); it != entities.end(); it++){
-            window.draw((*it)->sprite);
-        }
+        window.draw(easyEnemy1.sprite);
 		window.draw(hero.sprite);     //выводим спрайт на экран
 		window.display();
 	}
