@@ -4877,7 +4877,7 @@
    <tile gid="90"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="88"/>
    <tile gid="0"/>
    <tile gid="204"/>
    <tile gid="205"/>
@@ -5708,6 +5708,9 @@
   <object name="solid" x="0" y="0" width="32" height="864"/>
   <object name="solid" x="2208" y="0" width="32" height="864"/>
   <object name="player" x="76" y="223" width="32" height="32"/>
-  <object name="easyEnemy" x="499" y="396" width="51" height="33"/>
+  <object name="easyEnemy" x="496" y="451" width="51" height="33"/>
+  <object name="easyEnemy" x="1688" y="531" width="51" height="33"/>
+  <object name="easyEnemy" x="366" y="453" width="51" height="33"/>
+  <object name="solid" x="1091" y="483" width="27" height="27"/>
  </objectgroup>
 </map>
