@@ -46,7 +46,6 @@
 		<Unit filename="TinyXML/tinyxmlparser.cpp" />
 		<Unit filename="level.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="map.h" />
 		<Unit filename="view.h" />
 		<Extensions>
 			<code_completion />
