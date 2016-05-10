@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <sstream>
 #include "view.h"          //вид камеры
@@ -76,7 +77,7 @@ public:
     void checkCollisionWithMap(float Dx, float Dy){   //функция проверки столкновений с картой
 		for (int i = 0; i < obj.size(); i++)   //проходимся по объектам
 		if (getRect().intersects(obj[i].rect)){   //проверка пересечения игрока с объктом
-			if (obj[i].name == "solid"){
+			if ((obj[i].name == "solid")||(obj[i].name == "ground")||(obj[i].name == "grass")){
 				if (Dy>0){y = obj[i].rect.top - h;  dy = 0; onGround = true; }
 				if (Dy<0){y = obj[i].rect.top + obj[i].rect.height;  dy = 0;}
 				if (Dx>0){x = obj[i].rect.left - w;}
@@ -120,7 +121,8 @@ public:
 class Enemy :public Entity{
 public:
     Enemy(Image &image, String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
-        obj = lev.GetObjects("solid");
+        //obj = lev.GetObjects("solid");
+        obj = lev.GetAllObjects();
         if(name == "EasyEnemy1"){
             sprite.setTextureRect(IntRect(0,0,w,h));
             dx = 0.1;
@@ -139,8 +141,6 @@ public:
 
     void update(float time){
         if(name == "EasyEnemy1"){
-            // moveTimer += time;
-            // if(moveTimer>3000){dx *= -1; moveTimer = 0;}  // для изменения направление каждые 3 секунды
             x += dx*time;
             checkCollisionWithMap(dx, 0);
             y += dy*time;
@@ -153,6 +153,30 @@ public:
         }
     }
 
+};
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////// КЛАСС РАЗРУШАЕМЫХ ОБЪЕКТОВ /////////////////////////////////////////////
+class Objects:public Entity{
+public:
+    Objects(Image &image, String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
+        obj = lev.GetAllObjects();
+        if(name == "Ground"){
+            sprite.setTextureRect(IntRect(0,0,w,h));
+        }
+        if(name == "Grass"){
+            sprite.setTextureRect(IntRect(32,0,w,h));
+        }
+    }
+
+    void update(float time){
+        if((name == "Ground")||(name == "Grass")){
+            sprite.setPosition(x + w/2, y + h/2);
+            if(health <= 0){
+                life = false;
+            }
+        }
+    }
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -170,19 +194,38 @@ int main(){
     Level lvl;  //создали экземпляр класса уровень
     lvl.LoadFromFile("map.tmx");
 
+    Music music;     //создаем объект музыки
+    music.openFromFile("music.ogg");    //загружаем файл
+    music.play();    //воспроизводим музыку
+
     Image heroImage;
     heroImage.loadFromFile("images/Hero.png");
 
     Image easyEnemy1Image;
     easyEnemy1Image.loadFromFile("images/Goat.png");
 
+    Image groundImage;
+    groundImage.loadFromFile("images/ground.png");
+
     std::list<Entity*> entities;       //создаем список
+    std::list<Entity*> grounds;
+    std::list<Entity*> grass;
     std::list<Entity*>::iterator it;   //итератор, чтобы проходить по элементам списка
     std::list<Entity*>::iterator it2;
 
-    std::vector<Object> e = lvl.GetObjects("easyEnemy");
-    for (int i = 0; i < e.size(); i++){
-        entities.push_back(new Enemy(easyEnemy1Image, "EasyEnemy1", lvl, e[i].rect.left, e[i].rect.top, 46, 45));
+    std::vector<Object> grassList = lvl.GetObjects("grass");
+    for (int i = 0; i < grassList.size(); i++){
+        grass.push_back(new Objects(groundImage, "Grass", lvl, grassList[i].rect.left, grassList[i].rect.top, 32, 32));
+    }
+
+    std::vector<Object> groundList = lvl.GetObjects("ground");
+    for (int i = 0; i < groundList.size(); i++){
+        grounds.push_back(new Objects(groundImage, "Ground", lvl, groundList[i].rect.left, groundList[i].rect.top, 32, 32));
+    }
+
+    std::vector<Object> easyEnemy1List = lvl.GetObjects("easyEnemy");
+    for (int i = 0; i < easyEnemy1List.size(); i++){
+        entities.push_back(new Enemy(easyEnemy1Image, "EasyEnemy1", lvl, easyEnemy1List[i].rect.left, easyEnemy1List[i].rect.top, 46, 45));
     }
 
     Object player = lvl.GetObject("player");
@@ -210,6 +253,26 @@ int main(){
             if (b->life == false){
                 it = entities.erase(it);
                 delete b;
+            }else{
+                it++;
+            }
+        }
+        for (it = grounds.begin(); it != grounds.end();){
+            Entity *g = *it;
+            g->update(time);
+            if (g->life == false){
+                it = grounds.erase(it);
+                delete g;
+            }else{
+                it++;
+            }
+        }
+        for (it = grass.begin(); it != grass.end();){
+            Entity *g = *it;
+            g->update(time);
+            if (g->life == false){
+                it = grass.erase(it);
+                delete g;
             }else{
                 it++;
             }
@@ -252,6 +315,12 @@ int main(){
 		text.setPosition(view.getCenter().x + 125, view.getCenter().y - 240);
 		window.draw(text);
 
+        for (it = grass.begin(); it != grass.end(); it++){
+            window.draw((*it)->sprite);
+        }
+        for (it = grounds.begin(); it != grounds.end(); it++){
+            window.draw((*it)->sprite);
+        }
         for (it = entities.begin(); it != entities.end(); it++){
             window.draw((*it)->sprite);
         }
