@@ -30,7 +30,7 @@ char * memory_view(memory_t * newMemory){
     return newMemory->memory;
 }
 
-int memory_size(memory_t * newMemory){
+int memory_getSize(memory_t * newMemory){
     return newMemory->sizeMemory;
 }
 

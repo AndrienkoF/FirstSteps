@@ -12,6 +12,6 @@ typedef enum memory_status{
 void memory_check(memory_t * newMemory, char * memory);
 memory_status_t memory_status(memory_t * newMemory);
 char * memory_view(memory_t * newMemory);
-int memory_Size(memory_t * newMemory);
+int memory_getSize(memory_t * newMemory);
 
 #endif // DEDICATEDMEMORY_H_INCLUDED

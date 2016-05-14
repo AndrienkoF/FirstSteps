@@ -17,7 +17,7 @@ struct memory_s{
     int id;
 };
 
-heap_t * new_heap(int sizeHeap, int id){
+heap_t * heap_new(int sizeHeap, int id){
     heap_t  * newHeap = malloc(sizeof(struct heap_s));
     newHeap->status = H_OK;
     newHeap->sizeHeap = sizeHeap;
@@ -25,11 +25,11 @@ heap_t * new_heap(int sizeHeap, int id){
     return newHeap;
 }
 
-void heap_free(heap_t * newHeap){
+void heap_delete(heap_t * newHeap){
     free(newHeap);
 }
 
-int heap_size(heap_t * newHeap){
+int heap_getSize(heap_t * newHeap){
     return newHeap->sizeHeap;
 }
 
@@ -52,10 +52,4 @@ memory_t * heap_interactionMemory(heap_t * newHeap, int size){
     newMemory->sizeMemory = size;
     newHeap->sizeHeap = newHeap->sizeHeap - size;
     return newMemory;
-}
-
-void memory_free(memory_t * newMemory, heap_t * newHeap){
-    newHeap->sizeHeap = newHeap->sizeHeap + newMemory->sizeMemory;
-    free(newMemory->memory);
-    free(newMemory);
 }
