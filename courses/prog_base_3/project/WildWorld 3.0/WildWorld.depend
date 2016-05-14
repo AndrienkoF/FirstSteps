@@ -282,7 +282,7 @@
 	<SFML/Graphics/Color.hpp>
 	<SFML/System/Vector2.hpp>
 
-1430987944 c:\sfml\include\sfml\graphics\color.hpp
+1463159269 c:\sfml\include\sfml\graphics\color.hpp
 	<SFML/Graphics/Export.hpp>
 
 1429780453 c:\sfml\include\sfml\graphics\primitivetype.hpp
@@ -507,17 +507,22 @@
 	"tinyxml.h"
 	<windows.h>
 
-1462907456 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
+1463232858 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
 	<sstream>
-	"view.h"
-	"level.h"
 	<vector>
 	<list>
+	"view.h"
+	"level.h"
+	"classEntity.h"
+	"classPlayer.h"
+	"classEnemy.h"
+	"classObjects.h"
+	"menu.h"
 
-1462614675 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.h
+1463159269 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.h
 	<SFML/Graphics.hpp>
 
 1462570195 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\level.h
@@ -630,4 +635,159 @@
 1429780453 c:\sfml\include\sfml\audio\soundfilewriter.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+
+1463232858 source:c:\users\федя\desktop\wildworld 3.0\main.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	<vector>
+	<list>
+	"view.h"
+	"level.h"
+	"classEntity.h"
+	"classPlayer.h"
+	"classEnemy.h"
+	"classObjects.h"
+	"menu.h"
+
+1463159269 c:\users\федя\desktop\wildworld 3.0\view.h
+	<SFML/Graphics.hpp>
+
+1462570195 c:\users\федя\desktop\wildworld 3.0\level.h
+	<string>
+	<vector>
+	<map>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"TinyXML/tinyxml.h"
+
+1382940672 c:\users\федя\desktop\wildworld 3.0\tinyxml\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1382940672 c:\users\федя\desktop\wildworld 3.0\tinyxml\tinystr.h
+	<assert.h>
+	<string.h>
+
+1382940672 source:c:\users\федя\desktop\wildworld 3.0\tinyxml\tinystr.cpp
+	"tinystr.h"
+
+1382940672 source:c:\users\федя\desktop\wildworld 3.0\tinyxml\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1382940672 source:c:\users\федя\desktop\wildworld 3.0\tinyxml\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1382940672 source:c:\users\федя\desktop\wildworld 3.0\tinyxml\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1463230987 c:\users\федя\desktop\wildworld 3.0\classentity.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
+	"level.h"
+	<vector>
+	<list>
+
+1463232686 c:\users\федя\desktop\wildworld 3.0\classplayer.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	<vector>
+	<list>
+	"level.h"
+
+1463231311 c:\users\федя\desktop\wildworld 3.0\classenemy.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	<vector>
+	<list>
+	"level.h"
+
+1463232191 c:\users\федя\desktop\wildworld 3.0\classobjects.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
+	"level.h"
+	<vector>
+	<list>
+
+1463231886 c:\users\федя\desktop\wildworld 3.0\menu.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	"level.h"
+	<vector>
+	<list>
+
+1463231746 source:c:\users\федя\desktop\wildworld 3.0\menu.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	"level.h"
+	<vector>
+	<list>
+	"menu.h"
+
+1463230987 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
+	"level.h"
+	<vector>
+	<list>
+
+1463232686 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	<vector>
+	<list>
+	"level.h"
+
+1463231311 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	<vector>
+	<list>
+	"level.h"
+
+1463232191 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
+	"level.h"
+	<vector>
+	<list>
+
+1463231886 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	"level.h"
+	<vector>
+	<list>
 

@@ -16,6 +16,7 @@
 					<Add directory="C:/sfml/include" />
 				</Compiler>
 				<Linker>
+					<Add library="sfml-audio-d" />
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
@@ -44,8 +45,13 @@
 		<Unit filename="TinyXML/tinyxml.h" />
 		<Unit filename="TinyXML/tinyxmlerror.cpp" />
 		<Unit filename="TinyXML/tinyxmlparser.cpp" />
+		<Unit filename="classEnemy.h" />
+		<Unit filename="classEntity.h" />
+		<Unit filename="classObjects.h" />
+		<Unit filename="classPlayer.h" />
 		<Unit filename="level.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menu.h" />
 		<Unit filename="view.h" />
 		<Extensions>
 			<code_completion />
