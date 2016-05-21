@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1463821982 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_1\main\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"blog.h"
+
+1463817512 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_1\main\blog.h
+
+1463822246 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_1\staticlib\blog.h
+
