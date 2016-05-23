@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1463944056 source:d:\op\lab2\dll1\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	"main.h"
+
+1463944986 d:\op\lab2\dll1\main.h
+	<windows.h>
+	"queue.h"
+
+1463943957 d:\op\lab2\libstatic\queue.h
+
