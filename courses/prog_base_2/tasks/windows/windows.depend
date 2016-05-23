@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1463958401 source:d:\op\hw\windows\windows\leading.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"leading.h"
+
+1463958412 d:\op\hw\windows\windows\leading.h
+
