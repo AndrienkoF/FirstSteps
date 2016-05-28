@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1385320478 source:c:\users\федя\desktop\kr-2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1464337532 source:c:\users\федя\desktop\kr-2\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464337532 c:\users\федя\desktop\kr-2\cjson.h
+
+1464337532 source:c:\users\федя\desktop\kr-2\http.c
+	<stddef.h>
+	"http.h"
+	<stdio.h>
+	<string.h>
+
+1464337532 c:\users\федя\desktop\kr-2\http.h
+
