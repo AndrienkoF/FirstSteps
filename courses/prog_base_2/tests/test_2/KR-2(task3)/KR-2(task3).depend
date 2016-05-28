@@ -1,0 +1,83 @@
+# depslib dependency file v1.0
+1464435588 source:c:\users\федя\desktop\kr-2(task3)\leading.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"leading.h"
+
+1464435588 c:\users\федя\desktop\kr-2(task3)\leading.h
+
+1464435346 source:c:\users\федя\desktop\kr-2(task3)\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1450774966 source:c:\users\федя\desktop\kr-2(task3)\sqlite3.c
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	"config.h"
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/ioctl.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<tcl.h>
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<ctype.h>
+	<math.h>
+
+1464436295 source:c:\users\федя\desktop\kr-2(task3)\db.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"db.h"
+
+1464435346 c:\users\федя\desktop\kr-2(task3)\db.h
+	"sqlite3.h"
+	"leading.h"
+
+1450774966 c:\users\федя\desktop\kr-2(task3)\sqlite3.h
+	<stdarg.h>
+
