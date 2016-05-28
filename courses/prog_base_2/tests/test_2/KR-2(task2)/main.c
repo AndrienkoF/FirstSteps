@@ -2,7 +2,9 @@
 #include <windows.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include "client.h"
+#include "socket.h"
 
 #pragma comment(lib,"ws2_32.lib")
 
@@ -12,6 +14,9 @@
 
 
 int main(void) {
+    string_t* newString = string_new();
+    socket_t* server = socket_new();
+
     WSADATA Data;
     SOCKADDR_IN recvSockAddr;
     SOCKET recvSocket;
@@ -55,9 +60,36 @@ int main(void) {
 	// Print out receieved socket data
     //printf("\n%s\n\n", readArray(buffer));
 
+    while(true){
+        puts("Waiting...");
+        socket_t* client = socket_accept(server);
+
+        if(socket_read(client, buffer, sizeof(buffer)) <=0){
+            socket_close(client);
+            socket_free(client);
+            continue;
+        }
+
+        printf("Request:\n%s\n", buffer);
+
+        char str[200];
+        strcpy(str, readArray(buffer));
+
+        string_fromJSON(newString, str);
+        char * send = string_authorToJSON(newString);
+        server_info(client, send);
+
+        socket_free(client);
+    }
+
+
+    socket_free(server);
+
+    string_free(newString);
+
     closesocket(recvSocket);
 	WSACleanup();
 
-    system("pause");
+
     return 0;
 }

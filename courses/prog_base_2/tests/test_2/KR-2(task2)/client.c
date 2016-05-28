@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "client.h"
+#include "cJSON.h"
 
 #pragma comment(lib,"ws2_32.lib") //Winsock Library
 
@@ -14,25 +15,32 @@
 
 string_t * string_new(){
     string_t * newString = malloc(sizeof(struct string_s));
+	strcpy(newString->author, "");
+    strcpy(newString->quote, "");
+    strcpy(newString->time, "");
 	return newString;
+}
+
+char* string_getAuthor(string_t* newString){
+    return newString->author;
+}
+
+char* string_getQuote(string_t* newString){
+    return newString->quote;
+}
+
+char* string_getDate(string_t* newString){
+    return newString->time;
 }
 
 void string_free(string_t * newString) {
 	free(newString);
 }
 
-void string_fill(string_t * newString, char * author, char * quote, int year, int day, int mon) {
-	newString->author = author;
-	newString->quote = quote;
-	newString->ourTime.tm_year = year;
-	newString->ourTime.tm_mday = day;
-	newString->ourTime.tm_mon = mon;
-}
-
-char * readTime(string_t * newString){
-    char str[100];
-    sprintf("%i-%i-%i", newString->ourTime.tm_year, newString->ourTime.tm_mday, newString->ourTime.tm_mon );
-    return str;
+void string_fill(string_t * newString, char * author, char * quote, char * time) {
+	strcpy(newString->author, author);
+    strcpy(newString->quote, quote);
+    strcpy(newString->time, time);
 }
 
 int initializeWindowsSocketDLL(WSADATA Data){
@@ -103,12 +111,43 @@ char * readArray(char* buffer){
     return arrayJSON;
 }
 
-/*
-static cJSON * string_serializeJSON(const string_t * newString) {
-	cJSON * studSmpJSON = cJSON_CreateObject();
-	cJSON_AddItemToObject(studSmpJSON, "author", cJSON_CreateString(newStudent->author));
-	cJSON_AddItemToObject(studSmpJSON, "quote", cJSON_CreateString(newStudent->quote));
-    sprintf("%i-%i-%i", newString->ourTime.tm_year, newString->ourTime.tm_mday, newString->ourTime.tm_mon );
+char* string_authorToJSON(string_t * newString){
+    char* inJsn = NULL;
+    char buffer[300];
+    cJSON* stringJsn = cJSON_CreateObject();
 
-	return studSmpJSON;
-}*/
+    cJSON_AddItemToObject(stringJsn, "author", cJSON_CreateString(newString->author));
+    cJSON_AddItemToObject(stringJsn, "quote", cJSON_CreateString(newString->quote));
+    cJSON_AddItemToObject(stringJsn, "time", cJSON_CreateString(newString->time));
+
+    inJsn = cJSON_Print(stringJsn);
+    cJSON_Delete(stringJsn);
+    return inJsn;
+}
+
+void string_fromJSON(string_t* newString, char * string){
+    cJSON* jList = cJSON_CreateObject();
+    jList = cJSON_Parse(string);
+    char* author = cJSON_GetObjectItem(jList, "author")->valuestring;
+    char* quote = cJSON_GetObjectItem(jList, "quote")->valuestring;
+
+    time_t arrayTime;
+    struct tm* ourTime;
+
+    time(&arrayTime);
+    ourTime = localtime(&arrayTime);
+    string_fill(newString, author, quote, asctime(ourTime));
+}
+
+void server_info(socket_t* client, const char* worker){
+    char homeBuf[10224];
+
+    sprintf(homeBuf,
+        "HTTP/1.1 200 OK\n"
+        "Content-Type: application/json\n"
+        "Content-Length: %i\r\n\r\n"
+        "\n%s", strlen(worker)+1, worker);
+    socket_write_string(client, homeBuf);
+    socket_close(client);
+}
+
