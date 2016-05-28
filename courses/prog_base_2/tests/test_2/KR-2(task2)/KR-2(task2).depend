@@ -17,3 +17,22 @@
 	<ctype.h>
 	"client.h"
 
+1464432954 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task2)\client.c
+	<winsock2.h>
+	<windows.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<stdio.h>
+	"client.h"
+
+1464433596 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task2)\client.h
+	<time.h>
+
+1464434073 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task2)\main.c
+	<winsock2.h>
+	<windows.h>
+	<string.h>
+	<ctype.h>
+	"client.h"
+

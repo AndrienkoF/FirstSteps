@@ -12,6 +12,29 @@
 #define PORT 80
 #define MAXBUFLEN 20480 // How much is printed out to the screen
 
+string_t * string_new(){
+    string_t * newString = malloc(sizeof(struct string_s));
+	return newString;
+}
+
+void string_free(string_t * newString) {
+	free(newString);
+}
+
+void string_fill(string_t * newString, char * author, char * quote, int year, int day, int mon) {
+	newString->author = author;
+	newString->quote = quote;
+	newString->ourTime.tm_year = year;
+	newString->ourTime.tm_mday = day;
+	newString->ourTime.tm_mon = mon;
+}
+
+char * readTime(string_t * newString){
+    char str[100];
+    sprintf("%i-%i-%i", newString->ourTime.tm_year, newString->ourTime.tm_mday, newString->ourTime.tm_mon );
+    return str;
+}
+
 int initializeWindowsSocketDLL(WSADATA Data){
     int status;
     status = WSAStartup(MAKEWORD(2, 2), &Data);
@@ -45,7 +68,7 @@ void connecting(SOCKET recvSocket, SOCKADDR_IN recvSockAddr){
 
 void sendRequest (const char* host_name, SOCKET recvSocket){
     char request[200];
-    sprintf(request, "GET /test/var/6?format=json HTTP/1.1\r\nHost:%s\r\n\r\n", host_name);
+    sprintf(request, "GET /test/var/4?format=json HTTP/1.1\r\nHost:%s\r\n\r\n", host_name);
     send(recvSocket, request, strlen(request), 0);
 }
 
@@ -66,37 +89,26 @@ void receieve(SOCKET recvSocket, char * buffer){
         return(1);
     }
 }
-/*
-void readArray(char* buffer){
-    int i,j;
-    char * token;
+
+char * readArray(char* buffer){
+    char arrayJSON[400];
     char * firstPoint;
-    char ** matrix;
-
-
-    firstPoint = strstr(buffer,"Content-Length: 43");
-
-    token = strtok(firstPoint, "\n");
-    token = strtok(NULL, "\n");
-
-    while(token != NULL){
-        matrix = token;
-        fprintf(fw, "%s ", matrix);
-        token = strtok(NULL, " ");
-    }
-
-    fclose(fw);
-}*/
+    char* str;
+    firstPoint = strstr(buffer, "Content-Length:");
+    str = strtok(firstPoint, "\n");
+    str = strtok(NULL, "\n");
+    str = strtok(NULL, "\n");
+    strcpy(arrayJSON, str);
+    arrayJSON[strlen(arrayJSON)] = '\0';
+    return arrayJSON;
+}
 
 /*
-void resultPost(SOCKET recvSocket, char* host_name, int maxColIndex){
-	char result[30];
-	char request[200];
-	sprintf(result, "result=%d", maxColIndex);
-	printf("Max column index: %d\n", maxColIndex);
-	sprintf(request, "POST /var/6 HTTP/1.0\r\n"
-		"Host: %s\r\n"
-		"Content-length: %d\r\n\r\n"
-		"%s\r\n", host_name, strlen(result), result);
-	send(recvSocket, request, strlen(request) + 1, 0);
+static cJSON * string_serializeJSON(const string_t * newString) {
+	cJSON * studSmpJSON = cJSON_CreateObject();
+	cJSON_AddItemToObject(studSmpJSON, "author", cJSON_CreateString(newStudent->author));
+	cJSON_AddItemToObject(studSmpJSON, "quote", cJSON_CreateString(newStudent->quote));
+    sprintf("%i-%i-%i", newString->ourTime.tm_year, newString->ourTime.tm_mday, newString->ourTime.tm_mon );
+
+	return studSmpJSON;
 }*/

@@ -53,7 +53,7 @@ int main(void) {
     //receieve(recvSocket, buffer);
 
 	// Print out receieved socket data
-    //printf("\n%s\r\n\n", buffer);
+    //printf("\n%s\n\n", readArray(buffer));
 
     closesocket(recvSocket);
 	WSACleanup();
