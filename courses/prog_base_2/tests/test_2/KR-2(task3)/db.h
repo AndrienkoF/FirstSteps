@@ -3,6 +3,7 @@
 
 #include "sqlite3.h"
 #include "leading.h"
+#include "list.h"
 
 typedef struct db_s db_t;
 

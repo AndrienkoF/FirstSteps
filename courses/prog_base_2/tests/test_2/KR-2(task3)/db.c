@@ -4,6 +4,7 @@
 
 #include "db.h"
 
+
 struct db_s {
 	sqlite3 * db;
 };
