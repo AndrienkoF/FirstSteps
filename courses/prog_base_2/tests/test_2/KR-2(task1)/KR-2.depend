@@ -1,0 +1,158 @@
+# depslib dependency file v1.0
+1464426153 source:c:\users\федя\desktop\kr-2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"student.h"
+	"task1.h"
+
+1464337532 source:c:\users\федя\desktop\kr-2\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464337532 c:\users\федя\desktop\kr-2\cjson.h
+
+1464337532 source:c:\users\федя\desktop\kr-2\http.c
+	<stddef.h>
+	"http.h"
+	<stdio.h>
+	<string.h>
+
+1464337532 c:\users\федя\desktop\kr-2\http.h
+
+1464425807 c:\users\федя\desktop\kr-2\student.h
+
+1464426168 c:\users\федя\desktop\kr-2\task1.h
+	"socket.h"
+	"http.h"
+	"student.h"
+
+1464337532 c:\users\федя\desktop\kr-2\socket.h
+
+1464337532 source:c:\users\федя\desktop\kr-2\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1450774966 source:c:\users\федя\desktop\kr-2\sqlite3.c
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	"config.h"
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/ioctl.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<tcl.h>
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<ctype.h>
+	<math.h>
+
+1464425807 source:c:\users\федя\desktop\kr-2\student.c
+	"student.h"
+
+1464426299 source:c:\users\федя\desktop\kr-2\task1.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"cJSON.h"
+	"task1.h"
+
+1464337532 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464337532 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\cjson.h
+
+1464337532 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\http.c
+	<stddef.h>
+	"http.h"
+	<stdio.h>
+	<string.h>
+
+1464337532 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\http.h
+
+1464426153 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\main.c
+	<stdio.h>
+	<stdlib.h>
+	"student.h"
+	"task1.h"
+
+1464425807 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\student.h
+
+1464426168 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\task1.h
+	"socket.h"
+	"http.h"
+	"student.h"
+
+1464337532 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\socket.h
+
+1464337532 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1464425807 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\student.c
+	"student.h"
+
+1464427100 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\test_2\kr-2(task1)\task1.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"cJSON.h"
+	"task1.h"
+
