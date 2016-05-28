@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1464430153 source:c:\users\федя\desktop\kr-2(task2)\client.c
+	<winsock2.h>
+	<windows.h>
+	<string.h>
+	<ctype.h>
+	<stdlib.h>
+	<stdio.h>
+	"client.h"
+
+1464427704 c:\users\федя\desktop\kr-2(task2)\client.h
+
+1464430339 source:c:\users\федя\desktop\kr-2(task2)\main.c
+	<winsock2.h>
+	<windows.h>
+	<string.h>
+	<ctype.h>
+	"client.h"
+
