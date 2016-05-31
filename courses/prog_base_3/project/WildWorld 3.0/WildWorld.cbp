@@ -45,13 +45,19 @@
 		<Unit filename="TinyXML/tinyxml.h" />
 		<Unit filename="TinyXML/tinyxmlerror.cpp" />
 		<Unit filename="TinyXML/tinyxmlparser.cpp" />
+		<Unit filename="classEnemy.cpp" />
 		<Unit filename="classEnemy.h" />
+		<Unit filename="classEntity.cpp" />
 		<Unit filename="classEntity.h" />
+		<Unit filename="classObjects.cpp" />
 		<Unit filename="classObjects.h" />
+		<Unit filename="classPlayer.cpp" />
 		<Unit filename="classPlayer.h" />
+		<Unit filename="level.cpp" />
 		<Unit filename="level.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.h" />
+		<Unit filename="view.cpp" />
 		<Unit filename="view.h" />
 		<Extensions>
 			<code_completion />
