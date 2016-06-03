@@ -14,7 +14,7 @@ public:
     std::vector<Object>obj;   //вектор объектов карты
     float dx, dy, x, y, speed, moveTimer;
     int w, h, health;
-    bool life, isMove, onGround;
+    bool life, isMove, onGround, info, build;
     Texture texture;
     Sprite sprite;
     String name;

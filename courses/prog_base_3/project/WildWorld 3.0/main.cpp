@@ -15,7 +15,7 @@
 using namespace sf;   //включаем пространство имен sf (sf::)
 int main(){
 	RenderWindow window(VideoMode(1366, 768), "WildWorld", Style::Fullscreen);
-	menu(window);
+	//menu(window);
 
 	View view;
     view.reset(sf::FloatRect(0, 0, 1200, 600));              //размер "вида" камеры
@@ -26,6 +26,9 @@ int main(){
 
     Text text("", font, 20);
     text.setColor(Color::Black);
+
+    Text textInfo("", font, 20);
+    textInfo.setColor(Color::Black);
 
     Text textEnd("", font, 80);
     textEnd.setColor(Color::Red);
@@ -42,8 +45,23 @@ int main(){
     music.openFromFile("music/music.ogg");    //загружаем файл
     //music.play();                           //воспроизводим музыку
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Image infoFonIm;
+	infoFonIm.loadFromFile("images/infoFon.jpg");
+	Texture infoFonT;
+	infoFonT.loadFromImage(infoFonIm);
+	Sprite infoFonSp;
+	infoFonSp.setTexture(infoFonT);
+	infoFonSp.setTextureRect(IntRect(0, 0, 1152, 598));
+	infoFonSp.setScale(0.9f, 0.8f);
+
     Image heroImage;
     heroImage.loadFromFile("images/Hero2.png");
+
+    Image infoImage;
+    infoImage.loadFromFile("images/info.png");
+
+    Image hardEnemyIm;
+    hardEnemyIm.loadFromFile("images/monkey.png");
 
     Image easyEnemy1Image;
     easyEnemy1Image.loadFromFile("images/Goat.png");
@@ -87,11 +105,19 @@ int main(){
         entities.push_back(new Enemy(easyEnemy1Image, "EasyEnemy1", lvl, easyEnemy1List[i].rect.left, easyEnemy1List[i].rect.top, 46, 45));
     }
 
+    Object info = lvl.GetObject("info");
+    Objects myInfo(infoImage, "Info", lvl, info.rect.left, info.rect.top, 96, 96);
+
+    Object hardEnemy = lvl.GetObject("hardEnemy");
+    Enemy monkey(hardEnemyIm, "HardEnemy", lvl, hardEnemy.rect.left, hardEnemy.rect.top, 128, 125);
+
     Object player = lvl.GetObject("player");
     Player hero(heroImage, "Hero", lvl, player.rect.left, player.rect.top, 37, 55);
 
     float moveTimer = 0;
     int treesScore = 0, groundScore = 0;
+    bool showInfo = true;
+    //Vector2i mouseClickPos;
 
     Clock clock;    //создаем переменную времени, привязка ко времени(а не загруженности/мощности процессора).
     while (window.isOpen()){
@@ -104,10 +130,27 @@ int main(){
 		while (window.pollEvent(event)){
             if ((event.type == sf::Event::Closed)||(Keyboard::isKeyPressed(Keyboard::Escape)))
             window.close();
+
+            if (event.type == Event::KeyPressed){
+                if (event.key.code == Keyboard::I){
+                    switch (showInfo){
+                        case true: {
+                            infoFonSp.setPosition(50, 150);
+                            showInfo = false;
+                            break;
+                        }
+                        case false:{
+                            showInfo = true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
+        myInfo.update(&view, time);
+        monkey.update(&view, time);
         hero.update(&view, time);
-
         for (it = entities.begin(); it != entities.end();){
             Entity *b = *it;
             b->update(&view, time);
@@ -162,7 +205,7 @@ int main(){
         for (it = elki.begin(); it != elki.end(); it++){
             if ((*it)->getRect().intersects(hero.getRect())){   //если объект пересекается с игроком
                 if ((*it)->name == "Elka"){
-                    if ((Keyboard::isKeyPressed(Keyboard::D))){
+                    if ((Keyboard::isKeyPressed(Keyboard::E))){
                         if((moveTimer>5000)){
                             (*it)->dx = 0;
                             (*it)->health = 0;
@@ -176,7 +219,7 @@ int main(){
         for (it = bushes.begin(); it != bushes.end(); it++){
             if ((*it)->getRect().intersects(hero.getRect())){   //если объект пересекается с игроком
                 if ((*it)->name == "Bush"){
-                    if ((Keyboard::isKeyPressed(Keyboard::D)&&(moveTimer>5000))){
+                    if ((Keyboard::isKeyPressed(Keyboard::E)&&(moveTimer>5000))){
                         (*it)->dx = 0;
                         (*it)->health = 0;
                         treesScore++;
@@ -188,7 +231,7 @@ int main(){
         for (it = grass.begin(); it != grass.end(); it++){
             if ((*it)->getRect().intersects(hero.getRect())){   //если объект пересекается с игроком
                 if ((*it)->name == "Grass"){
-                    if ((Keyboard::isKeyPressed(Keyboard::S))){
+                    if ((Keyboard::isKeyPressed(Keyboard::Space))){
                         (*it)->dx = 0;
                         (*it)->health = 0;
                     }
@@ -198,7 +241,7 @@ int main(){
         for (it = grounds.begin(); it != grounds.end(); it++){
             if ((*it)->getRect().intersects(hero.getRect())){   //если объект пересекается с игроком
                 if ((*it)->name == "Ground"){
-                    if ((Keyboard::isKeyPressed(Keyboard::S))){
+                    if ((Keyboard::isKeyPressed(Keyboard::Space))){
                         (*it)->dx = 0;
                         (*it)->health = 0;
                         groundScore++;
@@ -209,12 +252,12 @@ int main(){
         for (it = entities.begin(); it != entities.end(); it++){
             if ((*it)->getRect().intersects(hero.getRect())){   //если объект пересекается с игроком
                 if ((*it)->name == "EasyEnemy1"){
-                    if (Keyboard::isKeyPressed(Keyboard::A)){
+                    if (Keyboard::isKeyPressed(Keyboard::Q)){
                         (*it)->dx = 0;
                         (*it)->health = 0;
                     }else{
                         if(moveTimer>2000){
-                            hero.health -= 50;
+                            hero.health -= 20;
                             moveTimer = 0;
                         }
                     }
@@ -250,6 +293,12 @@ int main(){
 		text.setPosition(view.getCenter().x - 310, view.getCenter().y - 240);
 		window.draw(text);
 
+		if (hero.info == true){
+            textInfo.setString("Press \"i\" ");
+            textInfo.setPosition(view.getCenter().x - 510, view.getCenter().y - 150);
+            window.draw(textInfo);
+        }
+
         if(hero.health >= 0){
             std::ostringstream playerHealthString;
             playerHealthString << hero.health;
@@ -267,6 +316,8 @@ int main(){
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        window.draw(myInfo.sprite);
+        window.draw(monkey.sprite);
         for (it = elki.begin(); it != elki.end(); it++){
             window.draw((*it)->sprite);
         }
@@ -283,6 +334,10 @@ int main(){
             window.draw((*it)->sprite);
         }
 		window.draw(hero.sprite);     //выводим спрайт на экран
+		if (!showInfo) {
+            infoFonSp.setPosition(50, 150);   //позиция фона
+			window.draw(infoFonSp);
+        }
 		window.display();
 	}
 	return 0;

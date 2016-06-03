@@ -2,6 +2,9 @@
 
 Objects::Objects(Image &image, String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
     obj = lev.GetAllObjects();
+    if(name == "Info"){
+        sprite.setTextureRect(IntRect(0,0,w,h));
+    }
     if(name == "Ground"){
         sprite.setTextureRect(IntRect(0,0,w,h));
     }
@@ -30,6 +33,9 @@ void Objects::checkCollisionWithMap(float Dx, float Dy){   //функция проверки ст
 }
 
 void Objects::update(sf::View * view, float time){
+    if(name == "Info"){
+        sprite.setPosition(x + w/2, y + h/2);
+    }
     if((name == "Ground")||(name == "Grass")){
         sprite.setPosition(x + w/2, y + h/2);
         if(health <= 0){

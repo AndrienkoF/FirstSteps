@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <sstream>
+#include <stdio.h>
 #include <vector>
 #include <list>
 #include "level.h"
