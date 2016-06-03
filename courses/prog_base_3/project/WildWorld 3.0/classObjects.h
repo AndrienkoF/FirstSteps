@@ -8,11 +8,11 @@
 #include <list>
 #include "classEntity.h"
 
-using namespace sf;
+//using namespace sf;
 
 class Objects:public Entity{
 public:
-    Objects(Image &image, String Name, Level &lev, float X, float Y, float W, float H);
+    Objects(sf::Image &image, sf::String Name, Level &lev, float X, float Y, float W, float H);
     void checkCollisionWithMap(float Dx, float Dy);
     void update(sf::View * view, float time);
 };

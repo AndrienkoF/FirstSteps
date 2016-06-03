@@ -507,22 +507,10 @@
 	"tinyxml.h"
 	<windows.h>
 
-1464956054 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
-	<SFML/Graphics.hpp>
-	<SFML/Audio.hpp>
-	<iostream>
-	<sstream>
-	<vector>
-	<list>
-	"view.h"
-	"level.h"
-	"classEntity.h"
-	"classPlayer.h"
-	"classEnemy.h"
-	"classObjects.h"
-	"menu.h"
+1464957534 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
+	"game.h"
 
-1464688495 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.h
+1464957672 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.h
 	<SFML/Graphics.hpp>
 
 1464088712 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\level.h
@@ -748,7 +736,7 @@
 	<list>
 	"menu.h"
 
-1464865656 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.h
+1464957756 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<sstream>
@@ -756,7 +744,7 @@
 	<vector>
 	<list>
 
-1464859379 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.h
+1464957831 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -768,7 +756,7 @@
 	"classEntity.h"
 	"view.h"
 
-1464877120 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.h
+1464957765 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -778,7 +766,7 @@
 	"level.h"
 	"classEntity.h"
 
-1464689188 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.h
+1464957806 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<sstream>
@@ -787,7 +775,7 @@
 	<list>
 	"classEntity.h"
 
-1464406770 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.h
+1464958440 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -796,16 +784,16 @@
 	<vector>
 	<list>
 
-1464865657 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.cpp
+1464957800 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.cpp
 	"classEntity.h"
 
-1464877151 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.cpp
+1464957792 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.cpp
 	"classEnemy.h"
 
-1464862026 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.cpp
+1464957824 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.cpp
 	"classObjects.h"
 
-1464870467 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.cpp
+1464957956 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.cpp
 	"classPlayer.h"
 
 1464869570 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.cpp
@@ -819,4 +807,25 @@
 	<iostream>
 	"TinyXML/tinyxml.h"
 	"level.h"
+
+1464958299 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.cpp
+	"game.h"
+
+1464957534 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+	<sstream>
+	<vector>
+	<list>
+	"view.h"
+	"level.h"
+	"classEntity.h"
+	"classPlayer.h"
+	"classEnemy.h"
+	"classObjects.h"
+	"menu.h"
+
+1464958440 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.cpp
+	"menu.h"
 

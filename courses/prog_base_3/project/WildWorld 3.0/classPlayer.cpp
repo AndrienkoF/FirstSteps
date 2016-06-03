@@ -1,25 +1,25 @@
 #include "classPlayer.h"
 
-Player::Player(Image &image, String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
+Player::Player(sf::Image &image, sf::String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
     CurrentFrame = 0;
     state = stay;
     obj = lev.GetAllObjects();   //получаем все объкты с карты
     if(name == "Hero"){
-        sprite.setTextureRect(IntRect(0,0,w,h));
+        sprite.setTextureRect(sf::IntRect(0,0,w,h));
     }
 }
 
 void Player::control(){
     if (life){
-        if (Keyboard::isKeyPressed(Keyboard::A)){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
             state = left;
             speed = 0.1;
         }
-        if (Keyboard::isKeyPressed(Keyboard::D)){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             state = right;
             speed = 0.1;
         }
-        if ((Keyboard::isKeyPressed(Keyboard::W))&& (onGround)){
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W))&& (onGround)){
             state = jump;
             dy = -0.6;
             onGround = false;
@@ -41,13 +41,13 @@ void Player::checkCollisionWithMap(float Dx, float Dy){   //функция проверки сто
                 if (Dx<0){x = obj[i].rect.left + obj[i].rect.width ;}
             }
             if(life){
-                if ((Keyboard::isKeyPressed(Keyboard::E))&&((obj[i].name == "bush")||(obj[i].name == "elka"))){
+                if ((sf::Keyboard::isKeyPressed(sf::Keyboard::E))&&((obj[i].name == "bush")||(obj[i].name == "elka"))){
                     obj[i].name = "crashedTree";
                 }
-                if ((Keyboard::isKeyPressed(Keyboard::Space))&&((obj[i].name == "grass")||(obj[i].name == "ground"))){
+                if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space))&&((obj[i].name == "grass")||(obj[i].name == "ground"))){
                     obj[i].name = "crashed";
                 }
-                if ((Keyboard::isKeyPressed(Keyboard::Q))&&(obj[i].name == "easyEnemy1")){
+                if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Q))&&(obj[i].name == "easyEnemy1")){
                     obj[i].name = "crashedEnemy";
                 }
                 if (obj[i].name == "info"){
@@ -83,38 +83,38 @@ void Player::update(sf::View * view, float time){  //функция для движения
         speed = 0;
     }
     if(life){
-        if (Keyboard::isKeyPressed(Keyboard::D)){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             state = right;
             speed = 0.1;
             CurrentFrame += 0.005*time;
             if (CurrentFrame > 3) CurrentFrame -= 3;
-            sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 0, 37, 55));
+            sprite.setTextureRect(sf::IntRect(37 *int(CurrentFrame), 0, 37, 55));
         }
-        if (Keyboard::isKeyPressed(Keyboard::A)){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
             state = left;
             speed = 0.1;
             CurrentFrame += 0.005*time;
             if (CurrentFrame > 4) CurrentFrame -= 3;
-            sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 61, 37, 55));
+            sprite.setTextureRect(sf::IntRect(37 *int(CurrentFrame), 61, 37, 55));
         }
-        if ((Keyboard::isKeyPressed(Keyboard::W))&& (onGround)){
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W))&& (onGround)){
             state = jump;
             dy = -0.7;
             onGround = false;
         }
-        if ((Keyboard::isKeyPressed(Keyboard::A))&&
-           ((Keyboard::isKeyPressed(Keyboard::E))||
-            (Keyboard::isKeyPressed(Keyboard::Q))||
-            (Keyboard::isKeyPressed(Keyboard::Space)))){
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::A))&&
+           ((sf::Keyboard::isKeyPressed(sf::Keyboard::E))||
+            (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))||
+            (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)))){
                 if (CurrentFrame > 3) CurrentFrame -= 2;
-                sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 251, -37, 55));
+                sprite.setTextureRect(sf::IntRect(37 *int(CurrentFrame), 251, -37, 55));
             }
-        if (((Keyboard::isKeyPressed(Keyboard::E))||
-            (Keyboard::isKeyPressed(Keyboard::Q))||
-            (Keyboard::isKeyPressed(Keyboard::Space)))&&(!Keyboard::isKeyPressed(Keyboard::A))){
+        if (((sf::Keyboard::isKeyPressed(sf::Keyboard::E))||
+            (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))||
+            (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)))&&(!sf::Keyboard::isKeyPressed(sf::Keyboard::A))){
             CurrentFrame += 0.005*time;
             if (CurrentFrame > 2) CurrentFrame -= 2;
-            sprite.setTextureRect(IntRect(37 *int(CurrentFrame), 251, 37, 55));
+            sprite.setTextureRect(sf::IntRect(37 *int(CurrentFrame), 251, 37, 55));
         }
         /*if (Mouse::isButtonPressed(Mouse::Left)){
                 CurrentFrame += 0.005*time;
@@ -123,7 +123,7 @@ void Player::update(sf::View * view, float time){  //функция для движения
             }*/
     }else{
         state = stay;
-        sprite.setTextureRect(IntRect(0 , 188, 37, 55));
+        sprite.setTextureRect(sf::IntRect(0 , 188, 37, 55));
     }
     setPlayerCoordinateForView(view, x, y);
 

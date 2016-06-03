@@ -1,15 +1,15 @@
 #include "classEnemy.h"
 
-Enemy::Enemy(Image &image, String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
+Enemy::Enemy(sf::Image &image, sf::String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
     CurrentFrame = 0;
     CurrentFrame2 = 0;
     obj = lev.GetAllObjects();
     if(name == "EasyEnemy1"){
-        sprite.setTextureRect(IntRect(0,0,w,h));
+        sprite.setTextureRect(sf::IntRect(0,0,w,h));
         dx = 0.1;
     }
     if(name == "HardEnemy"){
-        sprite.setTextureRect(IntRect(0,0,w,h));
+        sprite.setTextureRect(sf::IntRect(0,0,w,h));
         dx = 0.1;
     }
 }
@@ -45,7 +45,7 @@ void Enemy::update(sf::View * view, float time){
         if(life){
             CurrentFrame += 0.005*time;
             if (CurrentFrame > 2) CurrentFrame -= 2;
-            sprite.setTextureRect(IntRect(46 *int(CurrentFrame), 0, 46, 47));
+            sprite.setTextureRect(sf::IntRect(46 *int(CurrentFrame), 0, 46, 47));
         }
         dy = dy + 0.0015*time;   //постоянно притягиваемся к земле
     }
@@ -61,7 +61,7 @@ void Enemy::update(sf::View * view, float time){
         if(life){
             CurrentFrame2 += 0.005*time;
             if (CurrentFrame2 > 4) CurrentFrame2 -= 4;
-            sprite.setTextureRect(IntRect(128 * int(CurrentFrame2), 0, 128, 125));
+            sprite.setTextureRect(sf::IntRect(128 * int(CurrentFrame2), 0, 128, 125));
         }
         dy = dy + 0.0015*time;
     }

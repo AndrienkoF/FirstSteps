@@ -11,14 +11,14 @@
 #include "classEntity.h"
 #include "view.h"
 
-using namespace sf;
+//using namespace sf;
 
 class Player: public Entity{
 public:
     enum{left, right, up, down, jump, stay}state;
     float CurrentFrame;
 
-    Player (Image &image, String Name, Level &lev, float X, float Y, float W, float H);
+    Player (sf::Image &image, sf::String Name, Level &lev, float X, float Y, float W, float H);
     void control();
     void checkCollisionWithMap(float Dx, float Dy);
     void update(sf::View * view, float time);

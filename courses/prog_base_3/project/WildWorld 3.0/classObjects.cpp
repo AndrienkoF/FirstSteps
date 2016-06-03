@@ -1,21 +1,21 @@
 #include "classObjects.h"
 
-Objects::Objects(Image &image, String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
+Objects::Objects(sf::Image &image, sf::String Name, Level &lev, float X, float Y, float W, float H) :Entity(image, Name, X, Y, W, H){
     obj = lev.GetAllObjects();
     if(name == "Info"){
-        sprite.setTextureRect(IntRect(0,0,w,h));
+        sprite.setTextureRect(sf::IntRect(0,0,w,h));
     }
     if(name == "Ground"){
-        sprite.setTextureRect(IntRect(0,0,w,h));
+        sprite.setTextureRect(sf::IntRect(0,0,w,h));
     }
     if(name == "Grass"){
-        sprite.setTextureRect(IntRect(32,0,w,h));
+        sprite.setTextureRect(sf::IntRect(32,0,w,h));
     }
     if(name == "Bush"){
-        sprite.setTextureRect(IntRect(0,240,w,h));
+        sprite.setTextureRect(sf::IntRect(0,240,w,h));
     }
     if(name == "Elka"){
-        sprite.setTextureRect(IntRect(0,140,w,h));
+        sprite.setTextureRect(sf::IntRect(0,140,w,h));
     }
 }
 
