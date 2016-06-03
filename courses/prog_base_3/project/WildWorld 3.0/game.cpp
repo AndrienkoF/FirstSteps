@@ -3,7 +3,7 @@
 //using namespace sf;   //пространство имен sf (sf::)
 
 bool gamePlay(){
-    sf::RenderWindow window(sf::VideoMode(1366, 768), "WildWorld", sf::Style::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode(1366, 768), "WildWorld"/*, sf::Style::Fullscreen*/);
 	//menu(window);
 
 	sf::View view;
@@ -106,7 +106,8 @@ bool gamePlay(){
     float moveTimer = 0;
     int treesScore = 0, groundScore = 0;
     bool showInfo = true;
-    //Vector2i mouseClickPos;
+    bool isMove = false;
+
 
     sf::Clock clock;    //создаем переменную времени, привязка ко времени(а не загруженности/мощности процессора).
     while (window.isOpen()){
@@ -115,10 +116,29 @@ bool gamePlay(){
         time = time / 800;   //скорость игры
         moveTimer += time;
 
+        sf::Vector2i pixelPos = sf::Mouse::getPosition(window);   //координаты курсором
+        sf::Vector2f pos = window.mapPixelToCoords(pixelPos);     //переход в игровые координаты
+        //std::cout << pixelPos.x << "\n";
+        //std::cout << pos.x << "Gaming \n";
+
 		sf::Event event;
 		while (window.pollEvent(event)){
-            if ((event.type == sf::Event::Closed)/*||(Keyboard::isKeyPressed(Keyboard::Escape))*/)
+            if ((event.type == sf::Event::Closed))
             window.close();
+
+
+            for (unsigned int i = 0; i < hero.obj.size(); i++){
+                if(sf::FloatRect(pos.x, pos.y,2,2).intersects(hero.obj[i].rect)){
+                    if((hero.obj[i].name == "ground")||(hero.obj[i].name == "grass")){
+                        std::cout << pos.x << "\n";
+                        if (event.type == sf::Event::MouseButtonPressed){
+                            if(event.key.code == sf::Mouse::Left){
+                                hero.obj[i].name  = "";
+                            }
+                        }
+                    }
+                }
+            }
 
             if (event.type == sf::Event::KeyPressed){
                 if (event.key.code == sf::Keyboard::I){
@@ -180,7 +200,7 @@ bool gamePlay(){
         for (it = grounds.begin(); it != grounds.end();){
             Entity *g = *it;
             g->update(&view, time);
-            if (g->life == false){
+            if ((g->life == false)){
                 it = grounds.erase(it);
                 delete g;
             }else{

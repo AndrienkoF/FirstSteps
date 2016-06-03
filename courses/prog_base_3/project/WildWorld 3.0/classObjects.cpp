@@ -38,7 +38,7 @@ void Objects::update(sf::View * view, float time){
     }
     if((name == "Ground")||(name == "Grass")){
         sprite.setPosition(x + w/2, y + h/2);
-        if(health <= 0){
+        if((health <= 0)){
             life = false;
         }
     }

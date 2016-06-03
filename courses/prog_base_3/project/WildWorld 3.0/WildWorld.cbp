@@ -53,9 +53,12 @@
 		<Unit filename="classObjects.h" />
 		<Unit filename="classPlayer.cpp" />
 		<Unit filename="classPlayer.h" />
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
 		<Unit filename="level.cpp" />
 		<Unit filename="level.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
 		<Unit filename="view.cpp" />
 		<Unit filename="view.h" />

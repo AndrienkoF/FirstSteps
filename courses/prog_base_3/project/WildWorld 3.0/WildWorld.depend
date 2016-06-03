@@ -507,7 +507,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1464957534 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
+1464959643 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
 	"game.h"
 
 1464957672 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.h
@@ -736,7 +736,7 @@
 	<list>
 	"menu.h"
 
-1464957756 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.h
+1464964412 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<sstream>
@@ -784,16 +784,16 @@
 	<vector>
 	<list>
 
-1464957800 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.cpp
+1464964412 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.cpp
 	"classEntity.h"
 
 1464957792 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.cpp
 	"classEnemy.h"
 
-1464957824 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.cpp
+1464967320 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.cpp
 	"classObjects.h"
 
-1464957956 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.cpp
+1464966489 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.cpp
 	"classPlayer.h"
 
 1464869570 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.cpp
@@ -808,7 +808,7 @@
 	"TinyXML/tinyxml.h"
 	"level.h"
 
-1464958299 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.cpp
+1464967320 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.cpp
 	"game.h"
 
 1464957534 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.h

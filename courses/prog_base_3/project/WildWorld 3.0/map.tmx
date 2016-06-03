@@ -8120,7 +8120,7 @@
   <object name="solid" x="32" y="832" width="3136" height="32"/>
   <object name="solid" x="0" y="0" width="32" height="864"/>
   <object name="solid" x="3168" y="0" width="32" height="864"/>
-  <object name="player" x="3008" y="416" width="32" height="32"/>
+  <object name="player" x="128" y="320" width="32" height="32"/>
   <object name="easyEnemy" x="576" y="352" width="51" height="33"/>
   <object name="easyEnemy" x="1688" y="531" width="51" height="33"/>
   <object name="easyEnemy" x="256" y="320" width="51" height="33"/>
@@ -8731,7 +8731,7 @@
   <object name="elka" x="512" y="480" width="32" height="32"/>
   <object name="elka" x="1600" y="544" width="32" height="32"/>
   <object name="elka" x="2112" y="416" width="32" height="32"/>
-  <object name="info" x="64" y="160" width="96" height="96"/>
+  <object name="info" x="64" y="320" width="96" height="96"/>
   <object name="solid" x="320" y="512" width="352" height="32"/>
   <object name="solid" x="1536" y="576" width="352" height="32"/>
   <object name="hardEnemy" x="2656" y="640" width="96" height="96"/>

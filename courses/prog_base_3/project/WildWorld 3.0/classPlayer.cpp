@@ -44,9 +44,7 @@ void Player::checkCollisionWithMap(float Dx, float Dy){   //функция проверки сто
                 if ((sf::Keyboard::isKeyPressed(sf::Keyboard::E))&&((obj[i].name == "bush")||(obj[i].name == "elka"))){
                     obj[i].name = "crashedTree";
                 }
-                if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space))&&((obj[i].name == "grass")||(obj[i].name == "ground"))){
-                    obj[i].name = "crashed";
-                }
+
                 if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Q))&&(obj[i].name == "easyEnemy1")){
                     obj[i].name = "crashedEnemy";
                 }
