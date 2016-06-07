@@ -17,6 +17,7 @@ class Player: public Entity{
 public:
     enum{left, right, up, down, jump, stay}state;
     float CurrentFrame;
+    bool normalHero, heroWithPick, heroWithSword;
 
     Player (sf::Image &image, sf::String Name, Level &lev, float X, float Y, float W, float H);
     void control();

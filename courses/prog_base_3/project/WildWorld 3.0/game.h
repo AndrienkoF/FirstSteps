@@ -14,4 +14,5 @@
 #include "classObjects.h"
 #include "menu.h"
 
-void runningGame();
+void checkGamePlay();
+void runningGame(void(*cb)(void));

@@ -8,6 +8,5 @@
 #include <vector>
 #include <list>
 
-//using namespace sf;
-
 void menu(sf::RenderWindow & window);
+void menuEnd(sf::RenderWindow & window);

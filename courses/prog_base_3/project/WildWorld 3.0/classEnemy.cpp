@@ -17,17 +17,12 @@ Enemy::Enemy(sf::Image &image, sf::String Name, Level &lev, float X, float Y, fl
 void Enemy::checkCollisionWithMap(float Dx, float Dy){   //функция проверки столкновений с картой
     for (int i = 0; i < obj.size(); i++){                //проходимся по объектам
         if (getRect().intersects(obj[i].rect)){          //проверка пересечения игрока с объктом
-            if ((obj[i].name == "solid")||(obj[i].name == "ground")||(obj[i].name == "grass")||(obj[i].name == "cage")){
+            if ((obj[i].name == "solid")||(obj[i].name == "ground")||(obj[i].name == "grass")||(obj[i].name == "cage")||(obj[i].name == "border")){
                 if (Dy>0){y = obj[i].rect.top - h;  dy = 0; onGround = true; }
                 if (Dy<0){y = obj[i].rect.top + obj[i].rect.height;  dy = 0;}
                 if (Dx>0){x = obj[i].rect.left - w; dx = -0.1; sprite.scale(-1,1);}
                 if (Dx<0){x = obj[i].rect.left + obj[i].rect.width; dx = 0.1; sprite.scale(-1,1);}
-            }/*
-            if(name == "HardEnemy"){
-                if(obj[i].name == "player"){
-                    //-TO DO
-                }
-            }*/
+            }
         }
     }
 }
@@ -55,6 +50,7 @@ void Enemy::update(sf::View * view, float time){
         y += dy*time;
         checkCollisionWithMap(0, dy);
         sprite.setPosition(x + w/2, y + h/2);
+
         if(health <= 0){
             life = false;
         }

@@ -507,7 +507,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1464959643 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
+1465035786 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\main.cpp
 	"game.h"
 
 1464957672 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.h
@@ -736,7 +736,7 @@
 	<list>
 	"menu.h"
 
-1464964412 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.h
+1465248808 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<sstream>
@@ -744,7 +744,7 @@
 	<vector>
 	<list>
 
-1464957831 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.h
+1465253072 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -756,7 +756,7 @@
 	"classEntity.h"
 	"view.h"
 
-1464957765 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.h
+1465039318 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -775,7 +775,7 @@
 	<list>
 	"classEntity.h"
 
-1464958440 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.h
+1465209364 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -784,19 +784,19 @@
 	<vector>
 	<list>
 
-1464964412 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.cpp
+1465248808 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classentity.cpp
 	"classEntity.h"
 
-1464957792 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.cpp
+1465244894 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classenemy.cpp
 	"classEnemy.h"
 
-1464967320 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.cpp
+1465263627 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classobjects.cpp
 	"classObjects.h"
 
-1464966489 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.cpp
+1465263649 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\classplayer.cpp
 	"classPlayer.h"
 
-1464869570 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.cpp
+1465263107 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\view.cpp
 	"view.h"
 
 1464001682 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\level.cpp
@@ -808,10 +808,10 @@
 	"TinyXML/tinyxml.h"
 	"level.h"
 
-1464967320 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.cpp
+1465264541 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.cpp
 	"game.h"
 
-1464957534 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.h
+1465035786 c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\game.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
@@ -826,6 +826,6 @@
 	"classObjects.h"
 	"menu.h"
 
-1464958440 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.cpp
+1465243950 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_3\project\wildworld 3.0\menu.cpp
 	"menu.h"
 

@@ -1,6 +1,7 @@
 #include "game.h"
 
 int main(){
-    runningGame();
+    void(*cb)(void) = checkGamePlay;
+    runningGame(cb);
 	return 0;
 }
