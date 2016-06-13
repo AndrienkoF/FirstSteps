@@ -69,38 +69,6 @@ void db_create(db_t * newDb, student_t * newStudent) {
 	}
 }
 
-student_t * db_read(const db_t * newDb, int index) {
-	sqlite3_stmt * stmt = NULL;
-	student_t * newStudent = student_new();
-	char * sqlRequest = "SELECT * FROM Student WHERE id = ?;";
-	sqlite3_prepare_v2(newDb->db, sqlRequest, strlen(sqlRequest) + 1, &stmt, NULL);
-	sqlite3_bind_int(stmt, 1, index);
-	int rc = sqlite3_step(stmt);
-	if (rc == SQLITE_ERROR) {
-		printf("Cannot get Student with this id.\n");
-		return NULL;
-	}
-	student_fill(stmt, newStudent);
-	sqlite3_finalize(stmt);
-	return newStudent;
-}
-
-student_t * db_readOld(const db_t * newDb, int index) {
-	sqlite3_stmt * stmt = NULL;
-	student_t * newStudent = student_new();
-	char * sqlRequest = "SELECT * FROM Student WHERE fatherName = ?;";
-	sqlite3_prepare_v2(newDb->db, sqlRequest, strlen(sqlRequest) + 1, &stmt, NULL);
-	sqlite3_bind_int(stmt, 1, index);
-	int rc = sqlite3_step(stmt);
-	if (rc == SQLITE_ERROR) {
-		printf("Cannot get Student with this id.\n");
-		return NULL;
-	}
-	student_fill(stmt, newStudent);
-	sqlite3_finalize(stmt);
-	return newStudent;
-}
-
 void db_readList(const db_t * newDb, studentList_t * newStudentList) {
 	sqlite3_stmt * stmt = NULL;
 	int size = db_getSize(newDb);
@@ -123,43 +91,6 @@ void db_readList(const db_t * newDb, studentList_t * newStudentList) {
 	}
 	sqlite3_finalize(stmt);
 }
-////////////////////////////////////////TASK//////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-/*
-int db_readListTask(const db_t * newDb, int numRadioPrograms, int salary, leadingList_t * newLeadingList) {
-	sqlite3_stmt * stmt = NULL;
-	char * sqlRequest = "SELECT COUNT(*) FROM Leading WHERE numRadioPrograms > ? AND salary < ?;";
-	sqlite3_prepare_v2(newDb->db, sqlRequest, strlen(sqlRequest) + 1, &stmt, NULL);
-	sqlite3_bind_int(stmt, 1, numRadioPrograms);
-	sqlite3_bind_int(stmt, 2, salary);
-	int rc = sqlite3_step(stmt);
-	if (rc == SQLITE_ERROR) {
-		printf("Cannot get size of Leading table.\n");
-		exit(1);
-	}
-	int sizeFilter = sqlite3_column_int(stmt, 0);
-	sqlite3_reset(stmt);
-	newLeadingList->list = realloc(newLeadingList->list, sizeFilter * sizeof(leading_t *));
-	for (int i = 0; i < sizeFilter; i++) {
-		newLeadingList->list[i] = leading_new();
-	}
-	newLeadingList->size = sizeFilter;
-	sqlRequest = "SELECT * FROM Leading WHERE numRadioPrograms > ? AND salary < ?;";
-	sqlite3_prepare_v2(newDb->db, sqlRequest, strlen(sqlRequest) + 1, &stmt, NULL);
-	sqlite3_bind_int(stmt, 1, numRadioPrograms);
-	sqlite3_bind_int(stmt, 2, salary);
-	for (int i = 0; i < sizeFilter;i++) {
-        rc = sqlite3_step(stmt);
-		if (rc == SQLITE_ERROR) {
-			printf("Cannot get Leading table.\n");
-			exit(1);
-		}else {
-			leading_fill(stmt, newLeadingList->list[i]);
-		}
-	}
-	sqlite3_finalize(stmt);
-	return sizeFilter;
-}*/
 
 void db_update(db_t * newDb, student_t * newStudent, int index) {
 	sqlite3_stmt * stmt = NULL;

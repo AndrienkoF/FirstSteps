@@ -7,7 +7,7 @@
 #include "func.h"
 
 // unit-test function
-static void new_int_nullStr(void **state){
+static void new_int_notnullStr(void **state){
     char str [30]= "";
 	assert_non_null(str);
 }

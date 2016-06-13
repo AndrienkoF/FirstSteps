@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1465814634 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\database.c
+1465816736 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\database.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
 	"database.h"
 
-1465814231 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\database.h
+1465816742 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\database.h
 	"sqlite3.h"
 	"student.h"
 
@@ -14,7 +14,7 @@
 
 1465813318 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\student.h
 
-1465815782 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\main.c
+1465817766 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>

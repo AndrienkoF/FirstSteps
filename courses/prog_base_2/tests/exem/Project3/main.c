@@ -13,39 +13,25 @@ int main(){
 	printf("ALL STUDENT: %i\n\n", countSize);
     puts("-------------------------------------------------------------");
 
-    //db_readOld()
     db_readList(newDb, newStudentList);
 	studentList_print(newStudentList);
 	puts("-------------------------------------------------------------");
 
+	puts("     CREATE NEW STUDENT     \n");
+	/*
+    student_fillL(newStudent , "dsgsdg", "sdgdsv","sdfsdf", "sdgsdg", "vhgfnhgh");
+	//student_fillL(newStudent , name, surname, fatherName, birthday, hometown);
+	db_create(newDb, newStudent);
+	db_readList(newDb, newStudentList);
+	studentList_print(newStudentList);
+	puts("-------------------------------------------------------------");
 
-	//int countTask = db_readListTask(newDb, radioProgramsTask, salaryTask, newLeadingList);
-	//printf("     TASK     \n\nLeading with numRadioPrograms > %i and salary < %i: %i\n\n", radioProgramsTask, salaryTask, countTask);
-
-
-	//puts("     LEADING (BY INDEX 2)     \n");
-
-	//if (newLeading != NULL) {
-	//	leading_print(newLeading );
-	//}
-	//puts("-------------------------------------------------------------");
-
-	//puts("     CREATE NEW LEADING     \n");
-	//leading_fillL(newLeading , "Fedia", "Andrienko", "1997-11-06", 2, 4000, 10.0);
-	//db_create(newDb, newLeading );
-	//db_readList(newDb, newLeadingList);
-	//leadingList_print(newLeadingList);
-	//puts("-------------------------------------------------------------");
-
-	//puts("     UPDATE LEADING (BY INDEX 2)     \n");
-	//db_update(newDb, newStudent, 2);
-
-	//puts("     DELETE LEADING (BY INDEX 3)     \n");
-	//db_delete(newDb, 3);
-	//db_readList(newDb, newLeadingList);
-	//leadingList_print(newLeadingList);
-	//puts("-------------------------------------------------------------");
-
+	puts("     UPDATE STUDENT (BY INDEX 2)     \n");
+	db_update(newDb, newStudent, 6);
+	db_readList(newDb, newStudentList);
+	studentList_print(newStudentList);
+	puts("-------------------------------------------------------------");
+*/
 	student_free(newStudent);
 	studentList_free(newStudentList);
 	db_free(newDb);
