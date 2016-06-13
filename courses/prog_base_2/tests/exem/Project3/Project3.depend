@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1465814634 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\database.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"database.h"
+
+1465814231 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\database.h
+	"sqlite3.h"
+	"student.h"
+
+1450774966 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\sqlite3.h
+	<stdarg.h>
+
+1465813318 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\student.h
+
+1465815782 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"database.h"
+
+1450774966 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\sqlite3.c
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	"config.h"
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/ioctl.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<tcl.h>
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<ctype.h>
+	<math.h>
+
+1465814263 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project3\student.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"student.h"
+
