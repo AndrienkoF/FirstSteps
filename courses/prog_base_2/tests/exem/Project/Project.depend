@@ -1,12 +1,31 @@
 # depslib dependency file v1.0
-1465808228 source:c:\users\федя\desktop\project\func.c
+1465809650 source:c:\users\федя\desktop\project\func.c
 	<stdlib.h>
 	"func.h"
 
-1465807979 c:\users\федя\desktop\project\func.h
+1465809786 c:\users\федя\desktop\project\func.h
 
-1465808514 source:c:\users\федя\desktop\project\main.c
+1465809639 source:c:\users\федя\desktop\project\main.c
 	<stdio.h>
 	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"func.h"
+
+1465809650 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project\func.c
+	<stdlib.h>
+	"func.h"
+
+1465809786 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project\func.h
+
+1465809916 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\tests\exem\project\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
 	"func.h"
 

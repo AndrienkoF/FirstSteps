@@ -1,11 +1,8 @@
 #include <stdlib.h>
 #include "func.h"
 
-void numString(char myStr[]){
+int numString(char myStr[]){
     int sum = 0;
-    if(myStr == NULL){
-        return NULL;
-    }
     char sep [10] = ",";
     char *istr;
     istr = strtok (myStr,sep);
@@ -14,6 +11,15 @@ void numString(char myStr[]){
         sum += atoi(istr);
         istr = strtok (NULL,sep);
     }
-    printf("Sum: %i", sum);
+    //printf("Sum: %i", sum);
+    return sum;
 }
 
+int checkStr(char myStr[]){
+    if(myStr == NULL){
+        return -1;
+    }
+    numString(myStr);
+
+    return 1;
+}
