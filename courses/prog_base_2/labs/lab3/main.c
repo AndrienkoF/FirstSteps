@@ -69,7 +69,7 @@ static void new_connectUser_nameWrong(void ** state){
 	assert_int_equal(strcmp(user_getName(newUser), "Nick"), -1);
 	chat_delete(newChat);
 }
-
+/*
 int main(){
 	const struct CMUnitTest tests[] = {
 	    cmocka_unit_test(new_emptyChat_zeroCount),
@@ -82,9 +82,9 @@ int main(){
 	};
 	return cmocka_run_group_tests(tests, NULL, NULL);
 }
+*/
 
 
-/*
 int main(){
 	chat_t * newChat = chat_new();
 	user_t * newUser1 = user_new("Fedya");
@@ -93,7 +93,7 @@ int main(){
 	user_t * newUser4 = user_new("John");
     admin_t * newAdmin = admin_new("ADMIN Vasya");
 
-	user_setAdminEvents(newAdmin, event_subPrint, event_unSubPrint, event_newMessagePrint);
+	user_setAdminEvents(newAdmin, event_subPrint, event_unSubPrint);
 
 	user_setUserEvents(newUser1, event_newMessagePrint);
 	user_setUserEvents(newUser2, event_newMessagePrint);
@@ -109,4 +109,4 @@ int main(){
 	chat_work(newChat);
 	chat_delete(newChat);
 	return 0;
-}*/
+}

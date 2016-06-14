@@ -1,0 +1,235 @@
+# depslib dependency file v1.0
+1464975589 source:c:\repository\repos1\courses\prog_base_2\labs\lab5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"server/server.h"
+	"worker/worker.h"
+	"database.h"
+
+1465069941 source:c:\repository\repos1\courses\prog_base_2\labs\lab5\database.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<stdbool.h>
+	<sqlite3.h>
+	"database.h"
+	"worker/worker.h"
+
+1450771366 c:\repository\repos1\courses\prog_base_2\labs\lab5\sqlite\sqlite3.h
+	<stdarg.h>
+
+1465055571 c:\repository\repos1\courses\prog_base_2\labs\lab5\database.h
+	"worker/worker.h"
+	<stdbool.h>
+
+1464910680 c:\repository\repos1\courses\prog_base_2\labs\lab5\worker\worker.h
+
+1463925664 source:c:\repository\repos1\courses\prog_base_2\labs\lab5\http\http.c
+	<stdlib.h>
+	<stdio.h>
+	<stddef.h>
+	<string.h>
+	"http.h"
+
+1463293074 c:\repository\repos1\courses\prog_base_2\labs\lab5\http\http.h
+
+1463293074 source:c:\repository\repos1\courses\prog_base_2\labs\lab5\json\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1463293074 c:\repository\repos1\courses\prog_base_2\labs\lab5\json\cjson.h
+
+1465071116 source:c:\repository\repos1\courses\prog_base_2\labs\lab5\server\server.c
+	<stdlib.h>
+	<stdbool.h>
+	"../socket/socket.h"
+	"../worker/worker.h"
+	"server.h"
+	"../database.h"
+	"../http/http.h"
+
+1463293074 c:\repository\repos1\courses\prog_base_2\labs\lab5\socket\socket.h
+
+1465200385 c:\repository\repos1\courses\prog_base_2\labs\lab5\server\server.h
+	"../http/http.h"
+	"../database.h"
+	"../socket/socket.h"
+	"../worker/worker.h"
+
+1463926278 source:c:\repository\repos1\courses\prog_base_2\labs\lab5\socket\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1464976914 source:c:\repository\repos1\courses\prog_base_2\labs\lab5\worker\worker.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"worker.h"
+	"../JSON/cJSON.h"
+
+1450771366 c:\libs\sqlite3\sqlite3.h
+	<stdarg.h>
+
+1465729898 source:c:\users\федя\desktop\lab5\database.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<stdbool.h>
+	<sqlite3.h>
+	"database.h"
+	"worker/worker.h"
+
+1465729898 c:\users\федя\desktop\lab5\sqlite\sqlite3.h
+	<stdarg.h>
+
+1465729898 c:\users\федя\desktop\lab5\database.h
+	"worker/worker.h"
+	<stdbool.h>
+
+1465729898 c:\users\федя\desktop\lab5\worker\worker.h
+
+1465729898 source:c:\users\федя\desktop\lab5\http\http.c
+	<stdlib.h>
+	<stdio.h>
+	<stddef.h>
+	<string.h>
+	"http.h"
+
+1465729898 c:\users\федя\desktop\lab5\http\http.h
+
+1465729898 source:c:\users\федя\desktop\lab5\json\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1465729898 c:\users\федя\desktop\lab5\json\cjson.h
+
+1465729898 source:c:\users\федя\desktop\lab5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"server/server.h"
+	"worker/worker.h"
+	"database.h"
+
+1465729898 c:\users\федя\desktop\lab5\server\server.h
+	"../http/http.h"
+	"../database.h"
+	"../socket/socket.h"
+	"../worker/worker.h"
+
+1465729898 c:\users\федя\desktop\lab5\socket\socket.h
+
+1465729898 source:c:\users\федя\desktop\lab5\server\server.c
+	<stdlib.h>
+	<stdbool.h>
+	"../socket/socket.h"
+	"../worker/worker.h"
+	"server.h"
+	"../database.h"
+	"../http/http.h"
+
+1465729898 source:c:\users\федя\desktop\lab5\socket\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1465729898 source:c:\users\федя\desktop\lab5\worker\worker.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"worker.h"
+	"../JSON/cJSON.h"
+
+1465729898 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\http\http.c
+	<stdlib.h>
+	<stdio.h>
+	<stddef.h>
+	<string.h>
+	"http.h"
+
+1465729898 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\http\http.h
+
+1465729898 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\json\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1465729898 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\json\cjson.h
+
+1465781883 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"server/server.h"
+	"leading/leading.h"
+	"database.h"
+
+1465823176 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\server\server.h
+	"../http/http.h"
+	"../database.h"
+	"../socket/socket.h"
+	"../leading/leading.h"
+
+1465781343 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\database.h
+	"leading/leading.h"
+	<stdbool.h>
+
+1465781663 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\leading\leading.h
+
+1465729898 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\socket\socket.h
+
+1465729898 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\socket\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1465781262 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\database.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<stdbool.h>
+	<sqlite3.h>
+	"database.h"
+	"leading/leading.h"
+
+1465729898 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\sqlite\sqlite3.h
+	<stdarg.h>
+
+1465781671 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\leading\leading.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"leading.h"
+	"../JSON/cJSON.h"
+
+1465781957 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab5\server\server.c
+	<stdlib.h>
+	<stdbool.h>
+	"../socket/socket.h"
+	"../leading/leading.h"
+	"server.h"
+	"../database.h"
+	"../http/http.h"
+

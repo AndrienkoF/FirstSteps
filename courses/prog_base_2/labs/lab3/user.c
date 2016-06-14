@@ -9,7 +9,6 @@ struct admin_s{
 	char name[50];
 	cb_subscribe subscribeCb ;
 	cb_unSubscribe unSubscribeCb ;
-	cb_newMessage messageCb;
 };
 
 user_t * user_new(char * name){
@@ -36,10 +35,9 @@ void user_setUserEvents(user_t * user, cb_newMessage messageCb){
 	user->messageCb = messageCb;
 }
 
-void user_setAdminEvents(admin_t * admin, cb_subscribe subscribeCb, cb_unSubscribe unSubscribeCb, cb_newMessage messageCb){
+void user_setAdminEvents(admin_t * admin, cb_subscribe subscribeCb, cb_unSubscribe unSubscribeCb){
 	admin->subscribeCb = subscribeCb;
 	admin->unSubscribeCb = unSubscribeCb;
-	admin->messageCb;
 }
 
 char * user_getName(user_t * user){

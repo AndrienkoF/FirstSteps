@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1465026026 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab3\main.c
+1465026110 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
@@ -25,12 +25,12 @@
 1464993214 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab3\chat.h
 	"user.h"
 
-1464984349 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab3\user.h
+1465028531 c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab3\user.h
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
 	<Windows.h>
 
-1464984418 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab3\user.c
+1465028531 source:c:\users\федя\documents\github\kpirepo\courses\prog_base_2\labs\lab3\user.c
 	"user.h"
 

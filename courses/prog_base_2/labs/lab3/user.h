@@ -20,7 +20,7 @@ admin_t * user_newAdmin(char * name);
 void user_deleteAdmin(admin_t * admin);
 
 void user_setUserEvents(user_t * user, cb_newMessage cb);
-void user_setAdminEvents(admin_t * admin, cb_subscribe cb, cb_unSubscribe cb2, cb_newMessage cb3);
+void user_setAdminEvents(admin_t * admin, cb_subscribe cb, cb_unSubscribe cb2);
 
 char * user_getName(user_t * user);
 cb_subscribe admin_getSubCb(admin_t * admin);
